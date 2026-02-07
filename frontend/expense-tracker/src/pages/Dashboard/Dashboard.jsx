@@ -29,14 +29,10 @@ const Dashboard = () => {
         },
       })
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch dashboard data")
-      }
-
       const result = await res.json()
       setData(result)
     } catch (err) {
-      console.error("Dashboard fetch error:", err)
+      console.error("Dashboard error:", err)
       setData({
         totalBalance: 0,
         totalIncome: 0,
@@ -49,12 +45,10 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    if (authToken) {
-      fetchDashboard()
-    }
+    if (authToken) fetchDashboard()
   }, [authToken])
 
-  // 🔹 Add Income
+  // ✅ ADD INCOME
   const handleAddIncome = async (incomeData) => {
     try {
       await fetch(`${BASE_URL}/api/income`, {
@@ -73,7 +67,7 @@ const Dashboard = () => {
     }
   }
 
-  // 🔹 Add Expense
+  // ✅ ADD EXPENSE
   const handleAddExpense = async (expenseData) => {
     try {
       await fetch(`${BASE_URL}/api/expense`, {
@@ -95,22 +89,26 @@ const Dashboard = () => {
   if (loading) return <p className="p-8">Loading...</p>
 
   return (
-    <div className="flex bg-gray-100 min-h-screen">
+    <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
 
-      <main className="flex-1 p-8">
-        <Topbar
-          onAddIncome={() => setShowIncome(true)}
-          onAddExpense={() => setShowExpense(true)}
-        />
+      <div className="flex-1 flex flex-col">
+        {/* 🔝 TOP BAR (white like Figma) */}
+        <div className="bg-white border-b">
+          <Topbar
+            onAddIncome={() => setShowIncome(true)}
+            onAddExpense={() => setShowExpense(true)}
+          />
+        </div>
 
-        <StatsGrid data={data} />
+        {/* 📄 MAIN CONTENT */}
+        <main className="flex-1 px-10 py-8 bg-gray-50">
+          <StatsGrid data={data} />
+          <TransactionsTable transactions={data.transactions} />
+        </main>
+      </div>
 
-        <TransactionsTable
-          transactions={data?.transactions || []}
-        />
-      </main>
-
+      {/* MODALS */}
       {showIncome && (
         <AddIncomeModal
           onClose={() => setShowIncome(false)}
