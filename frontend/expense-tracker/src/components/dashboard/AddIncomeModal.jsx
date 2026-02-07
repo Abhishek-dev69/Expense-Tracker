@@ -5,6 +5,7 @@ const AddIncomeModal = ({ onClose, onSubmit }) => {
     e.preventDefault()
 
     const form = e.target
+
     const incomeData = {
       amount: Number(form.amount.value),
       category: form.category.value,
@@ -18,7 +19,7 @@ const AddIncomeModal = ({ onClose, onSubmit }) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white w-[420px] rounded-2xl shadow-xl p-6 relative">
-        
+
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-lg font-semibold">Add New Income</h3>
@@ -27,23 +28,24 @@ const AddIncomeModal = ({ onClose, onSubmit }) => {
           </button>
         </div>
 
-        {/* Amount */}
-        <div className="text-center mb-6">
-          <p className="text-xs text-gray-500 mb-1">AMOUNT</p>
-          <div className="text-4xl font-semibold text-green-500">
-            + ₹
-            <input
-              name="amount"
-              type="number"
-              placeholder="0.00"
-              className="w-32 text-center outline-none"
-              required
-            />
-          </div>
-        </div>
-
+        {/* FORM STARTS */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          
+
+          {/* Amount */}
+          <div className="text-center mb-4">
+            <p className="text-xs text-gray-500 mb-1">AMOUNT</p>
+            <div className="text-4xl font-semibold text-green-500">
+              + ₹
+              <input
+                name="amount"
+                type="number"
+                placeholder="0.00"
+                className="w-32 text-center outline-none bg-transparent"
+                required
+              />
+            </div>
+          </div>
+
           {/* Category */}
           <div>
             <label className="text-sm text-gray-500">Category</label>
@@ -80,7 +82,7 @@ const AddIncomeModal = ({ onClose, onSubmit }) => {
             />
           </div>
 
-          {/* Button */}
+          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-emerald-400 text-white py-3 rounded-xl font-medium"
@@ -88,6 +90,8 @@ const AddIncomeModal = ({ onClose, onSubmit }) => {
             Save Income
           </button>
         </form>
+        {/* FORM ENDS */}
+
       </div>
     </div>
   )
