@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoutes.js"
 import dashboardRoutes from "./routes/dashboardRoutes.js"
 import transactionRoutes from "./routes/transactionRoutes.js"
 
+
 dotenv.config()
 
 const app = express()
