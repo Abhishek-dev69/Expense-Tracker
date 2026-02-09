@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import Login from "./pages/Auth/Login"
 import SignUp from "./pages/Auth/SignUp"
 
+
 import DashboardLayout from "./pages/Dashboard/DashboardLayout"
 import Home from "./pages/Dashboard/Home"
 import Analytics from "./pages/Dashboard/Analytics"
