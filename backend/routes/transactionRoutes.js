@@ -13,6 +13,7 @@ router.post("/income", protect, async (req, res) => {
       amount: Math.abs(req.body.amount),
       type: "income",
       category: req.body.category,
+      date: req.body.date,
     })
 
     res.status(201).json(tx)
@@ -30,6 +31,7 @@ router.post("/expense", protect, async (req, res) => {
       amount: -Math.abs(req.body.amount),
       type: "expense",
       category: req.body.category,
+      date: req.body.date,
     })
 
     res.status(201).json(tx)
