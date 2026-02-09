@@ -1,21 +1,43 @@
 import { NavLink } from "react-router-dom"
+import {
+  LayoutDashboard,
+  BarChart3,
+  List,
+  Settings,
+} from "lucide-react"
 
 const Sidebar = () => {
-  return (
-    <aside className="w-64 bg-white border-r min-h-screen p-6">
-      <h1 className="text-xl font-bold mb-8">FinTrack</h1>
+  const linkClass = ({ isActive }) =>
+    `flex items-center gap-3 px-4 py-2 rounded-lg transition ${
+      isActive
+        ? "bg-emerald-50 text-emerald-600 font-medium"
+        : "text-gray-600 hover:bg-gray-100"
+    }`
 
-      <nav className="space-y-4">
-        <NavLink to="/dashboard" className="block text-emerald-600 font-medium">
+  return (
+    <aside className="w-64 bg-white border-r p-6">
+      {/* Logo */}
+      <h1 className="text-xl font-bold mb-10">FinTrack</h1>
+
+      {/* Navigation */}
+      <nav className="space-y-2">
+        <NavLink to="/dashboard" end className={linkClass}>
+          <LayoutDashboard size={18} />
           Dashboard
         </NavLink>
-        <NavLink to="/dashboard/income" className="block text-gray-600">
-          Income
+
+        <NavLink to="/dashboard/analytics" className={linkClass}>
+          <BarChart3 size={18} />
+          Analytics
         </NavLink>
-        <NavLink to="/dashboard/expense" className="block text-gray-600">
-          Expenses
+
+        <NavLink to="/dashboard/transactions" className={linkClass}>
+          <List size={18} />
+          Transactions
         </NavLink>
-        <NavLink to="/dashboard/settings" className="block text-gray-600">
+
+        <NavLink to="/dashboard/settings" className={linkClass}>
+          <Settings size={18} />
           Settings
         </NavLink>
       </nav>
