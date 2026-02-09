@@ -3,30 +3,28 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import Login from "./pages/Auth/Login"
 import SignUp from "./pages/Auth/SignUp"
 
-import Dashboard from "./pages/Dashboard/Dashboard"
+import DashboardLayout from "./pages/Dashboard/DashboardLayout"
 import Home from "./pages/Dashboard/Home"
-import Income from "./pages/Dashboard/Income"
-import Expense from "./pages/Dashboard/Expense"
+import Analytics from "./pages/Dashboard/Analytics"
+import Transactions from "./pages/Dashboard/Transactions"
+import Settings from "./pages/Dashboard/Settings"
 
 const App = () => {
   return (
     <Routes>
-      {/* Auth routes */}
+      {/* Auth */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
 
-      {/* Dashboard layout route */}
-      <Route path="/dashboard" element={<Dashboard />}>
-        {/* Default page when /dashboard */}
+      {/* Dashboard */}
+      <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<Home />} />
-
-        {/* Nested dashboard pages */}
-        <Route path="home" element={<Home />} />
-        <Route path="income" element={<Income />} />
-        <Route path="expense" element={<Expense />} />
+        <Route path="analytics" element={<Analytics />} />
+        <Route path="transactions" element={<Transactions />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
 
-      {/* Redirect everything else */}
+      {/* Fallback */}
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   )
