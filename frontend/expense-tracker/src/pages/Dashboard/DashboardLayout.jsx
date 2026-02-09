@@ -1,21 +1,20 @@
 import { Outlet } from "react-router-dom"
 import { useState } from "react"
-import { useAuth } from "../../context/AuthContext"
-import { BASE_URL } from "../../utils/apiPaths"
-
 import Sidebar from "../../components/dashboard/Sidebar"
 import Topbar from "../../components/dashboard/Topbar"
 import AddIncomeModal from "../../components/dashboard/AddIncomeModal"
 import AddExpenseModal from "../../components/dashboard/AddExpenseModal"
+import { BASE_URL } from "../../utils/apiPaths"
+import { useAuth } from "../../context/AuthContext"
 
 const DashboardLayout = () => {
-  const { token } = useAuth()
-  const authToken = token || localStorage.getItem("token")
-
   const [showIncome, setShowIncome] = useState(false)
   const [showExpense, setShowExpense] = useState(false)
+  const { token } = useAuth()
 
-  // ✅ ADD INCOME (FIXED)
+  const authToken = token || localStorage.getItem("token")
+
+  // ✅ ADD INCOME (FIXED API)
   const handleAddIncome = async (incomeData) => {
     try {
       const res = await fetch(`${BASE_URL}/api/income`, {
@@ -30,12 +29,13 @@ const DashboardLayout = () => {
       if (!res.ok) throw new Error("Failed to add income")
 
       setShowIncome(false)
+      window.location.reload() // simple refresh for now
     } catch (err) {
       console.error("Add income error:", err)
     }
   }
 
-  // ✅ ADD EXPENSE (FIXED)
+  // ✅ ADD EXPENSE (FIXED API)
   const handleAddExpense = async (expenseData) => {
     try {
       const res = await fetch(`${BASE_URL}/api/expense`, {
@@ -50,6 +50,7 @@ const DashboardLayout = () => {
       if (!res.ok) throw new Error("Failed to add expense")
 
       setShowExpense(false)
+      window.location.reload()
     } catch (err) {
       console.error("Add expense error:", err)
     }
@@ -72,7 +73,6 @@ const DashboardLayout = () => {
         </main>
       </div>
 
-      {/* ✅ MODALS */}
       {showIncome && (
         <AddIncomeModal
           onClose={() => setShowIncome(false)}
