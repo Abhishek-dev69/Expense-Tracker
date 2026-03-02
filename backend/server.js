@@ -7,43 +7,64 @@ import authRoutes from "./routes/authRoutes.js"
 import dashboardRoutes from "./routes/dashboardRoutes.js"
 import transactionRoutes from "./routes/transactionRoutes.js"
 
-
 dotenv.config()
 
 const app = express()
 
-// ✅ CORS (works with Vite ports 5173, 5174, etc.)
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || origin.startsWith("http://localhost:517")) {
-      callback(null, true)
-    } else {
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
-  credentials: true,
-}
+/* =====================
+   Middleware
+===================== */
 
-app.use(cors(corsOptions))
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || origin.startsWith("http://localhost:517")) {
+        callback(null, true)
+      } else {
+        callback(new Error("Not allowed by CORS"))
+      }
+    },
+    credentials: true,
+  })
+)
+
 app.use(express.json())
 
-// ✅ ROUTES
+/* =====================
+   Routes
+===================== */
+
 app.use("/api/auth", authRoutes)
 app.use("/api/dashboard", dashboardRoutes)
 app.use("/api", transactionRoutes)
 
-// ✅ DB + SERVER START
+/* =====================
+   Mongo + Server
+===================== */
+
 const PORT = process.env.PORT || 5001
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
+const startServer = async () => {
+  try {
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI missing in .env")
+    }
+
+    await mongoose.connect(process.env.MONGO_URI, {
+      family: 4,                     // force IPv4
+      serverSelectionTimeoutMS: 10000,
+    })
+
     console.log("✅ MongoDB Connected")
+    console.log("📦 DB Name:", mongoose.connection.name)
+
     app.listen(PORT, () => {
       console.log(`🚀 Server running on port ${PORT}`)
     })
-  })
-  .catch((err) => {
-    console.error("❌ Mongo error:", err)
+  } catch (err) {
+    console.error("❌ Mongo connection error:", err.message)
     process.exit(1)
-  })
+  }
+}
+
+startServer()
