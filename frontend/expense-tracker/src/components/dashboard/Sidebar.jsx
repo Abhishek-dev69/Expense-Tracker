@@ -3,42 +3,48 @@ import {
   LayoutDashboard,
   BarChart3,
   List,
-  Settings,
+  Target,
+  Brain,
+  FileText,
 } from "lucide-react"
 
 const Sidebar = () => {
   const linkClass = ({ isActive }) =>
-    `flex items-center gap-3 px-4 py-2 rounded-lg transition ${
+    `flex items-center gap-3 px-4 py-3 rounded-xl transition ${
       isActive
-        ? "bg-emerald-50 text-emerald-600 font-medium"
-        : "text-gray-600 hover:bg-gray-100"
+        ? "bg-[#1f2937] text-emerald-400"
+        : "text-gray-400 hover:bg-[#1f2937] hover:text-white"
     }`
 
   return (
-    <aside className="w-64 bg-white border-r p-6">
-      {/* Logo */}
-      <h1 className="text-xl font-bold mb-10">FinTrack</h1>
+    <aside className="w-64 min-h-screen bg-[#0f172a] border-r border-white/10 p-6">
+      <h1 className="text-2xl font-bold text-white mb-12">
+        FinTrack AI
+      </h1>
 
-      {/* Navigation */}
-      <nav className="space-y-2">
+      <nav className="space-y-3 text-sm">
         <NavLink to="/dashboard" end className={linkClass}>
-          <LayoutDashboard size={18} />
-          Dashboard
+          <LayoutDashboard size={18} /> Dashboard
         </NavLink>
 
         <NavLink to="/dashboard/analytics" className={linkClass}>
-          <BarChart3 size={18} />
-          Analytics
+          <BarChart3 size={18} /> Analytics
         </NavLink>
 
         <NavLink to="/dashboard/transactions" className={linkClass}>
-          <List size={18} />
-          Transactions
+          <List size={18} /> Transactions
         </NavLink>
 
-        <NavLink to="/dashboard/settings" className={linkClass}>
-          <Settings size={18} />
-          Settings
+        <NavLink to="/dashboard/budget" className={linkClass}>
+          <Target size={18} /> Budget
+        </NavLink>
+
+        <NavLink to="/dashboard/insights" className={linkClass}>
+          <Brain size={18} /> AI Insights
+        </NavLink>
+
+        <NavLink to="/dashboard/reports" className={linkClass}>
+          <FileText size={18} /> Reports
         </NavLink>
       </nav>
     </aside>
