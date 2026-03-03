@@ -17,42 +17,50 @@ const AddIncomeModal = ({ onClose, onSubmit }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-white w-[420px] rounded-2xl shadow-xl p-6 relative">
+    <div className="fixed inset-0 bg-gradient-to-br from-black/40 to-emerald-900/30 backdrop-blur-md flex items-center justify-center z-50">
+
+      {/* Glass Card */}
+      <div className="w-[420px] rounded-3xl p-8 relative 
+        bg-white/10 backdrop-blur-xl 
+        border border-white/20 
+        shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
 
         {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h3 className="text-lg font-semibold">Add New Income</h3>
+        <div className="flex justify-between items-center mb-8">
+          <h3 className="text-xl font-semibold text-white tracking-wide">
+            Add New Income
+          </h3>
           <button onClick={onClose}>
-            <X className="w-5 h-5 text-gray-500" />
+            <X className="w-5 h-5 text-white/70 hover:text-white transition" />
           </button>
         </div>
 
-        {/* FORM STARTS */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
 
           {/* Amount */}
-          <div className="text-center mb-4">
-            <p className="text-xs text-gray-500 mb-1">AMOUNT</p>
-            <div className="text-4xl font-semibold text-green-500">
+          <div className="text-center">
+            <p className="text-xs text-white/70 mb-2 tracking-widest">AMOUNT</p>
+            <div className="text-4xl font-semibold text-emerald-300">
               + ₹
               <input
                 name="amount"
                 type="number"
                 placeholder="0.00"
-                className="w-32 text-center outline-none bg-transparent"
+                className="w-32 text-center bg-transparent outline-none text-white"
                 required
               />
             </div>
           </div>
 
-          {/* Category */}
+          {/* Neumorphism Fields */}
           <div>
-            <label className="text-sm text-gray-500">Category</label>
+            <label className="text-sm text-white/70">Category</label>
             <select
               name="category"
-              className="w-full border rounded-lg px-3 py-2 mt-1"
               required
+              className="w-full mt-2 p-3 rounded-xl bg-[#1e1e1e]/40 text-white
+                shadow-[6px_6px_16px_rgba(0,0,0,0.6),-6px_-6px_16px_rgba(255,255,255,0.05)]
+                focus:outline-none"
             >
               <option value="">Select Category</option>
               <option value="Salary">Salary</option>
@@ -61,37 +69,40 @@ const AddIncomeModal = ({ onClose, onSubmit }) => {
             </select>
           </div>
 
-          {/* Date */}
           <div>
-            <label className="text-sm text-gray-500">Date</label>
+            <label className="text-sm text-white/70">Date</label>
             <input
               name="date"
               type="date"
-              className="w-full border rounded-lg px-3 py-2 mt-1"
               required
+              className="w-full mt-2 p-3 rounded-xl bg-[#1e1e1e]/40 text-white
+                shadow-[6px_6px_16px_rgba(0,0,0,0.6),-6px_-6px_16px_rgba(255,255,255,0.05)]
+                focus:outline-none"
             />
           </div>
 
-          {/* Notes */}
           <div>
-            <label className="text-sm text-gray-500">Notes (Optional)</label>
+            <label className="text-sm text-white/70">Notes</label>
             <textarea
               name="notes"
               placeholder="Add a description..."
-              className="w-full border rounded-lg px-3 py-2 mt-1"
+              className="w-full mt-2 p-3 rounded-xl bg-[#1e1e1e]/40 text-white
+                shadow-[6px_6px_16px_rgba(0,0,0,0.6),-6px_-6px_16px_rgba(255,255,255,0.05)]
+                focus:outline-none"
             />
           </div>
 
-          {/* Submit */}
+          {/* Button */}
           <button
             type="submit"
-            className="w-full bg-emerald-400 text-white py-3 rounded-xl font-medium"
+            className="w-full py-3 rounded-xl font-medium text-white
+              bg-gradient-to-r from-emerald-400 to-emerald-600
+              shadow-lg hover:scale-[1.02] transition duration-300"
           >
             Save Income
           </button>
-        </form>
-        {/* FORM ENDS */}
 
+        </form>
       </div>
     </div>
   )
