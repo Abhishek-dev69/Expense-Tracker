@@ -8,7 +8,9 @@ import DashboardLayout from "./pages/Dashboard/DashboardLayout"
 import Home from "./pages/Dashboard/Home"
 import Analytics from "./pages/Dashboard/Analytics"
 import Transactions from "./pages/Dashboard/Transactions"
-import Settings from "./pages/Dashboard/Settings"
+import Budget from "./pages/Dashboard/Budget"
+import AIInsights from "./pages/Dashboard/AIInsights"
+import Reports from "./pages/Dashboard/Reports"
 
 const App = () => {
   return (
@@ -22,7 +24,9 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="analytics" element={<Analytics />} />
         <Route path="transactions" element={<Transactions />} />
-        <Route path="settings" element={<Settings />} />
+        <Route path="budget" element={<Budget />} />
+        <Route path="insights" element={<AIInsights />} />
+        <Route path="reports" element={<Reports />} />
       </Route>
 
       {/* Fallback */}
