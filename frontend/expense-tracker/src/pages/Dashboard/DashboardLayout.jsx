@@ -57,37 +57,47 @@ const DashboardLayout = () => {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+  <div className="relative flex min-h-screen text-white bg-[#0b1220] overflow-hidden">
+
+    {/* 🔥 Background Glow Effects */}
+    <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px]" />
+    <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px]" />
+
+    {/* Main Layout */}
+    <div className="relative flex w-full">
+
       <Sidebar />
 
       <div className="flex-1 flex flex-col">
-        <div className="bg-white border-b">
-          <Topbar
-            onAddIncome={() => setShowIncome(true)}
-            onAddExpense={() => setShowExpense(true)}
-          />
-        </div>
 
-        <main className="flex-1 px-10 py-8 bg-gray-50">
+        <Topbar
+          onAddIncome={() => setShowIncome(true)}
+          onAddExpense={() => setShowExpense(true)}
+        />
+
+        <main className="flex-1 px-10 py-10">
           <Outlet />
         </main>
+
       </div>
 
-      {showIncome && (
-        <AddIncomeModal
-          onClose={() => setShowIncome(false)}
-          onSubmit={handleAddIncome}
-        />
-      )}
-
-      {showExpense && (
-        <AddExpenseModal
-          onClose={() => setShowExpense(false)}
-          onSubmit={handleAddExpense}
-        />
-      )}
     </div>
-  )
+
+    {showIncome && (
+      <AddIncomeModal
+        onClose={() => setShowIncome(false)}
+        onSubmit={handleAddIncome}
+      />
+    )}
+
+    {showExpense && (
+      <AddExpenseModal
+        onClose={() => setShowExpense(false)}
+        onSubmit={handleAddExpense}
+      />
+    )}
+  </div>
+)
 }
 
 export default DashboardLayout
