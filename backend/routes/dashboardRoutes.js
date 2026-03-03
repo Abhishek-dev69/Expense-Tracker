@@ -11,22 +11,21 @@ router.get("/", protect, async (req, res) => {
     const limit = 5
     const skip = (page - 1) * limit
 
-    // ✅ Ensure ObjectId match
     const userId = new mongoose.Types.ObjectId(req.user.id)
 
-    // ✅ Count total transactions for user
+    // 🔢 Total count for pagination
     const totalCount = await Transaction.countDocuments({
       user: userId,
     })
 
-    // ✅ Paginated transactions
+    // 📄 Paginated transactions
     const transactions = await Transaction.find({ user: userId })
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit)
       .lean()
 
-    // ✅ Aggregate totals (more efficient than filtering JS array)
+    // 💰 Aggregate totals
     const totals = await Transaction.aggregate([
       { $match: { user: userId } },
       {
@@ -52,11 +51,33 @@ router.get("/", protect, async (req, res) => {
 
     const totalIncome = totals[0]?.totalIncome || 0
     const totalExpense = totals[0]?.totalExpense || 0
+    const totalBalance = totalIncome - totalExpense
+
+    /* =============================
+       📈 Forecast Engine
+    ============================== */
+
+    const today = new Date()
+    const daysPassed = today.getDate()
+
+    const daysInMonth = new Date(
+      today.getFullYear(),
+      today.getMonth() + 1,
+      0
+    ).getDate()
+
+    const avgDailyExpense =
+      daysPassed > 0 ? totalExpense / daysPassed : 0
+
+    const predictedExpense = avgDailyExpense * daysInMonth
+    const predictedBalance = totalIncome - predictedExpense
 
     res.json({
       totalIncome,
       totalExpense,
-      totalBalance: totalIncome - totalExpense,
+      totalBalance,
+      predictedBalance,
+      averageDailyExpense: avgDailyExpense,
       transactions,
       totalPages: Math.ceil(totalCount / limit),
       currentPage: page,
