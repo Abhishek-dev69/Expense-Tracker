@@ -15,7 +15,7 @@ import {
   Area,
 } from "recharts"
 
-const COLORS = ["#6EE7B7", "#1E3A8A", "#34D399", "#CBD5E1"]
+const COLORS = ["#10B981", "#3B82F6", "#6366F1", "#F59E0B"]
 
 const Analytics = () => {
   const { token } = useAuth()
@@ -89,9 +89,9 @@ const Analytics = () => {
   }))
 
   return (
-    <div className="px-10 py-8 space-y-8 bg-gray-50 min-h-screen">
+    <div className="px-10 py-10 space-y-10">
 
-      {/* SUMMARY CARDS */}
+      {/* ================= SUMMARY CARDS ================= */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           ["Total Balance", data.totalBalance],
@@ -100,40 +100,60 @@ const Analytics = () => {
         ].map(([label, value]) => (
           <div
             key={label}
-            className="bg-white p-6 rounded-2xl border shadow-sm"
+            className="
+              p-6 rounded-2xl
+              bg-[#111827]
+              border border-white/10
+              shadow-lg
+              hover:-translate-y-1 transition
+            "
           >
-            <p className="text-gray-500">{label}</p>
-            <h3 className="text-3xl font-bold">₹{value}</h3>
+            <p className="text-gray-400 text-sm">{label}</p>
+            <h3 className="text-3xl font-bold text-white mt-2">
+              ₹{value.toLocaleString()}
+            </h3>
           </div>
         ))}
       </div>
 
-      {/* BAR + PIE */}
+      {/* ================= BAR + PIE ================= */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
         {/* BAR CHART */}
-        <div className="bg-white p-6 rounded-2xl border shadow-sm lg:col-span-2">
-          <div className="flex justify-between mb-4">
-            <h3 className="font-semibold">Income vs Expenses</h3>
+        <div className="lg:col-span-2 p-6 rounded-2xl bg-[#111827] border border-white/10 shadow-lg">
+          <div className="flex justify-between mb-6">
+            <h3 className="font-semibold text-white">
+              Income vs Expenses
+            </h3>
             <div className="flex gap-4 text-sm">
-              <span className="text-emerald-500">● Income</span>
-              <span className="text-blue-800">● Expense</span>
+              <span className="text-emerald-400">● Income</span>
+              <span className="text-blue-400">● Expense</span>
             </div>
           </div>
 
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={barData}>
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="income" fill="#6EE7B7" radius={[6, 6, 0, 0]} />
-              <Bar dataKey="expense" fill="#1E3A8A" radius={[6, 6, 0, 0]} />
+              <XAxis dataKey="month" stroke="#9CA3AF" />
+              <YAxis stroke="#9CA3AF" />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#1f2937",
+                  border: "none",
+                  borderRadius: "12px",
+                  color: "white",
+                }}
+              />
+              <Bar dataKey="income" fill="#10B981" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="expense" fill="#3B82F6" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
         {/* PIE CHART */}
-        <div className="bg-white p-6 rounded-2xl border shadow-sm">
-          <h3 className="font-semibold mb-4">Spending Breakdown</h3>
+        <div className="p-6 rounded-2xl bg-[#111827] border border-white/10 shadow-lg">
+          <h3 className="font-semibold text-white mb-6">
+            Spending Breakdown
+          </h3>
 
           <ResponsiveContainer width="100%" height={260}>
             <PieChart>
@@ -142,34 +162,51 @@ const Analytics = () => {
                 dataKey="value"
                 innerRadius={60}
                 outerRadius={90}
+                paddingAngle={3}
               >
                 {pieData.map((_, i) => (
                   <Cell key={i} fill={COLORS[i % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#1f2937",
+                  border: "none",
+                  borderRadius: "12px",
+                  color: "white",
+                }}
+              />
             </PieChart>
           </ResponsiveContainer>
         </div>
       </div>
 
-      {/* DAILY SPENDING */}
-      <div className="bg-white p-6 rounded-2xl border shadow-sm">
-        <h3 className="font-semibold mb-2">Daily Spending Trend</h3>
-        <p className="text-gray-500 text-sm mb-4">
+      {/* ================= DAILY TREND ================= */}
+      <div className="p-6 rounded-2xl bg-[#111827] border border-white/10 shadow-lg">
+        <h3 className="font-semibold text-white mb-2">
+          Daily Spending Trend
+        </h3>
+        <p className="text-gray-400 text-sm mb-6">
           Spending trajectory over time
         </p>
 
         <ResponsiveContainer width="100%" height={260}>
           <AreaChart data={areaData}>
-            <XAxis dataKey="day" />
-            <YAxis />
-            <Tooltip />
+            <XAxis dataKey="day" stroke="#9CA3AF" />
+            <YAxis stroke="#9CA3AF" />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#1f2937",
+                border: "none",
+                borderRadius: "12px",
+                color: "white",
+              }}
+            />
             <Area
               type="monotone"
               dataKey="value"
-              stroke="#34D399"
-              fill="#D1FAE5"
+              stroke="#10B981"
+              fill="rgba(16,185,129,0.2)"
             />
           </AreaChart>
         </ResponsiveContainer>
