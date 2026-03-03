@@ -6,6 +6,9 @@ import dotenv from "dotenv"
 import authRoutes from "./routes/authRoutes.js"
 import dashboardRoutes from "./routes/dashboardRoutes.js"
 import transactionRoutes from "./routes/transactionRoutes.js"
+import budgetRoutes from "./routes/budgetRoutes.js"
+import insightsRoutes from "./routes/insightsRoutes.js"
+import reportsRoutes from "./routes/reportsRoutes.js"
 
 dotenv.config()
 
@@ -37,6 +40,9 @@ app.use(express.json())
 app.use("/api/auth", authRoutes)
 app.use("/api/dashboard", dashboardRoutes)
 app.use("/api", transactionRoutes)
+app.use("/api/budget", budgetRoutes)
+app.use("/api/insights", insightsRoutes)
+app.use("/api/reports", reportsRoutes)
 
 /* =====================
    Mongo + Server
@@ -51,7 +57,7 @@ const startServer = async () => {
     }
 
     await mongoose.connect(process.env.MONGO_URI, {
-      family: 4,                     // force IPv4
+      family: 4,
       serverSelectionTimeoutMS: 10000,
     })
 
