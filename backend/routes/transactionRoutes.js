@@ -1,66 +1,89 @@
 import express from "express"
 import { protect } from "../middleware/authMiddleware.js"
 import Transaction from "../models/Transaction.js"
+import { predictCategory } from "../services/aiService.js"
 
 const router = express.Router()
 
 // ➕ Add Income
 router.post("/income", protect, async (req, res) => {
   try {
+
     const tx = await Transaction.create({
       user: req.user.id,
       title: req.body.title || "Income",
       amount: Math.abs(req.body.amount),
       type: "income",
-      category: req.body.category,
+      category: req.body.category || "Income",
       date: req.body.date,
     })
 
     res.status(201).json(tx)
+
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
 })
+
 
 // ➖ Add Expense
 router.post("/expense", protect, async (req, res) => {
   try {
+
+    const description = req.body.title || "Expense"
+
+    let category = req.body.category
+    let confidence = 0
+
+    // 🤖 Use AI only if category not selected
+    if (!category || category === "") {
+
+      const ai = await predictCategory(description)
+
+      category = ai.predicted_category
+      confidence = ai.confidence
+
+    }
+
     const tx = await Transaction.create({
       user: req.user.id,
-      title: req.body.title || "Expense",
+      title: description,
       amount: -Math.abs(req.body.amount),
       type: "expense",
-      category: req.body.category,
+      category,
+      aiConfidence: confidence,
       date: req.body.date,
     })
 
     res.status(201).json(tx)
+
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
 })
-// 📥 Get All Transactions (with filters + pagination)
+
+
+// 📥 Get Transactions
 router.get("/transactions", protect, async (req, res) => {
+
   try {
+
     const { page = 1, limit = 10, search, category, startDate, endDate } = req.query
 
     const query = { user: req.user.id }
 
-    // 🔍 Search by title
     if (search) {
       query.title = { $regex: search, $options: "i" }
     }
 
-    // 📂 Filter by category
     if (category && category !== "All") {
       query.category = category
     }
 
-    // 📅 Filter by date range
     if (startDate && endDate) {
       query.date = {
         $gte: new Date(startDate),
-        $lte: new Date(endDate),
+        $lte: new Date(endDate)
       }
     }
 
@@ -75,28 +98,42 @@ router.get("/transactions", protect, async (req, res) => {
       transactions,
       total,
       page: Number(page),
-      totalPages: Math.ceil(total / limit),
+      totalPages: Math.ceil(total / limit)
     })
+
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
+
 })
-// ❌ Delete transaction
+
+
+// ❌ Delete
 router.delete("/transactions/:id", protect, async (req, res) => {
+
   try {
+
     const tx = await Transaction.findOne({
       _id: req.params.id,
-      user: req.user.id,
+      user: req.user.id
     })
 
-    if (!tx) return res.status(404).json({ message: "Transaction not found" })
+    if (!tx) {
+      return res.status(404).json({
+        message: "Transaction not found"
+      })
+    }
 
     await tx.deleteOne()
 
-    res.json({ message: "Transaction deleted" })
+    res.json({
+      message: "Transaction deleted"
+    })
+
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
+
 })
 
 export default router
