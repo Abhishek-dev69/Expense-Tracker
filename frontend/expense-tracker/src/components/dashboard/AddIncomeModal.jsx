@@ -7,11 +7,11 @@ const AddIncomeModal = ({ onClose, onSubmit }) => {
     const form = e.target
 
     const incomeData = {
-      amount: Number(form.amount.value),
-      category: form.category.value,
-      date: form.date.value,
-      notes: form.notes.value,
-    }
+  title: form.notes.value,
+  amount: Number(form.amount.value),
+  category: form.category.value,
+  date: form.date.value,
+}
 
     onSubmit(incomeData)
   }
