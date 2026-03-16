@@ -19,14 +19,19 @@ class TransactionInput(BaseModel):
 
 # Clean text function
 def clean_text(text):
-
     text = str(text).lower()
+
+    # Remove transaction noise common in Indian context
+    noise = [
+        "transaction at", "payment to", "spent on", "order at",
+        "upi", "pos", "term", "ref", "imps", "neft", "transfer"
+    ]
+    for n in noise:
+        text = text.replace(n, "")
 
     text = re.sub(r"http\S+", "", text)
     text = re.sub(r"\d+", "", text)
-
     text = text.translate(str.maketrans("", "", string.punctuation))
-
     text = re.sub(r"\s+", " ", text).strip()
 
     return text
