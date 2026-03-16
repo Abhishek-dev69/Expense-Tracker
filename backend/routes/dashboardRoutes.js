@@ -53,6 +53,11 @@ router.get("/", protect, async (req, res) => {
     const totalExpense = totals[0]?.totalExpense || 0
     const totalBalance = totalIncome - totalExpense
 
+    // 📊 All transactions for Analytics (unlimited)
+    const allTransactions = await Transaction.find({ user: userId })
+      .sort({ date: -1 })
+      .lean()
+
     /* =============================
        📈 Forecast Engine
     ============================== */
@@ -79,6 +84,7 @@ router.get("/", protect, async (req, res) => {
       predictedBalance,
       averageDailyExpense: avgDailyExpense,
       transactions,
+      allTransactions,
       totalPages: Math.ceil(totalCount / limit),
       currentPage: page,
     })
