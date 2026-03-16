@@ -25,60 +25,32 @@ print("Dataset shape:", df.shape)
 # 2. Select Columns
 # =========================
 
-df = df.dropna(subset=["Description", "MerchantType"])
+df = df.dropna(subset=["Description", "Category"])
 
 df = df.rename(columns={
     "Description": "text",
-    "MerchantType": "merchant_type"
+    "Category": "label"
 })
 
 
 # =========================
-# 3. Map Merchant → Finance Category
-# =========================
-
-CATEGORY_MAP = {
-    "Restaurant": "Food",
-    "Online Store": "Shopping",
-    "Retail": "Shopping",
-    "Subscription": "Entertainment",
-    "Service": "Utilities"
-}
-
-df["label"] = df["merchant_type"].map(CATEGORY_MAP)
-
-df = df.dropna(subset=["label"])
-
-
-# =========================
-# 4. Remove Data Leakage
-# =========================
-
-LEAKAGE_WORDS = [
-    "online store",
-    "restaurant",
-    "retail",
-    "subscription",
-    "service"
-]
-
-
-# =========================
-# 5. Clean Text
+# 3. Clean Text
 # =========================
 
 def clean_text(text):
-
     text = str(text).lower()
 
-    for word in LEAKAGE_WORDS:
-        text = text.replace(word, "")
+    # Remove transaction noise common in Indian context
+    noise = [
+        "transaction at", "payment to", "spent on", "order at",
+        "upi", "pos", "term", "ref", "imps", "neft", "transfer"
+    ]
+    for n in noise:
+        text = text.replace(n, "")
 
     text = re.sub(r"http\S+", "", text)
     text = re.sub(r"\d+", "", text)
-
     text = text.translate(str.maketrans("", "", string.punctuation))
-
     text = re.sub(r"\s+", " ", text).strip()
 
     return text
