@@ -28,12 +28,10 @@ const Reports = () => {
   const fetchReport = useCallback(async () => {
     setLoading(true)
     try {
-      console.log(`Fetching report for ${selectedMonth}/${selectedYear}`)
       const res = await axios.get(`${BASE_URL}/api/reports/monthly`, {
         params: { month: selectedMonth, year: selectedYear },
         headers: { Authorization: `Bearer ${authToken}` },
       })
-      console.log("Report response:", res.data)
       setReport(res.data)
       setError(null)
     } catch (err) {
