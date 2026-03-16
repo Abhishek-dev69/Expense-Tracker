@@ -57,25 +57,25 @@ const DashboardLayout = () => {
   }
 
   return (
-  <div className="relative flex min-h-screen text-white bg-[#0b1220] overflow-hidden">
+  <div className="relative flex h-screen text-white bg-[#0b1220] overflow-hidden">
 
     {/* 🔥 Background Glow Effects */}
     <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px]" />
     <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px]" />
 
     {/* Main Layout */}
-    <div className="relative flex w-full">
+    <div className="relative flex w-full h-full">
 
       <Sidebar />
 
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col h-full overflow-hidden">
 
         <Topbar
           onAddIncome={() => setShowIncome(true)}
           onAddExpense={() => setShowExpense(true)}
         />
 
-        <main className="flex-1 px-10 py-10">
+        <main className="flex-1 px-10 py-10 overflow-y-auto">
           <Outlet />
         </main>
 
