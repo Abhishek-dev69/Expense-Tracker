@@ -10,7 +10,6 @@ router.get("/monthly", protect, async (req, res) => {
     const userId = new mongoose.Types.ObjectId(req.user.id)
     const month = parseInt(req.query.month, 10)
     const year = parseInt(req.query.year, 10)
-    console.log(`Backend reports processing: Month=${month}, Year=${year}`)
     
     // selectedMonth is 1-based (1=Jan, 2=feb), convert to 0-based for JS Date
     const start = new Date(year, month - 1, 1)
