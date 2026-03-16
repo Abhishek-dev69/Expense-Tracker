@@ -1,6 +1,9 @@
-import { Search, Plus, Minus } from "lucide-react"
+import { Search, Plus, Minus, LogOut, User as UserIcon } from "lucide-react"
+import { useAuth } from "../../context/AuthContext"
 
 const Topbar = ({ onAddIncome, onAddExpense }) => {
+  const { user, logout } = useAuth()
+
   return (
     <header
       className="
@@ -22,7 +25,7 @@ shadow-md
             Dashboard Overview
           </h2>
           <p className="text-sm text-gray-400 mt-1">
-            Here's what's happening with your finance today.
+            Welcome back, <span className="text-emerald-400 font-medium">{user?.name || "User"}</span>
           </p>
         </div>
 
@@ -86,25 +89,33 @@ shadow-md
           {/* User Card */}
           <div
             className="
-              flex items-center gap-3 px-4 py-2 rounded-2xl
+              flex items-center gap-4 px-4 py-2 rounded-2xl
               bg-white/5 backdrop-blur-md
               border border-white/10
               shadow-[6px_6px_16px_rgba(0,0,0,0.6),-4px_-4px_12px_rgba(255,255,255,0.03)]
             "
           >
-            <img
-              src="https://i.pravatar.cc/40"
-              alt="User"
-              className="w-9 h-9 rounded-full"
-            />
-            <div>
-              <p className="text-sm font-medium text-white">
-                User
+            <div className="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <UserIcon size={18} />
+            </div>
+            <div className="hidden xl:block">
+              <p className="text-sm font-medium text-white max-w-[150px] truncate">
+                {user?.email || "loading..."}
               </p>
-              <p className="text-xs text-gray-400">
-                Premium Plan
+              <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">
+                {user?.name || "Member"}
               </p>
             </div>
+            
+            <div className="w-[1px] h-8 bg-white/10 mx-1" />
+
+            <button
+              onClick={logout}
+              title="Logout"
+              className="p-2 rounded-xl hover:bg-white/5 text-gray-400 hover:text-rose-400 transition-all active:scale-90"
+            >
+              <LogOut size={18} />
+            </button>
           </div>
 
         </div>
