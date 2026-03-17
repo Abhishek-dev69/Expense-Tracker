@@ -9,6 +9,9 @@ import transactionRoutes from "./routes/transactionRoutes.js"
 import budgetRoutes from "./routes/budgetRoutes.js"
 import insightsRoutes from "./routes/insightsRoutes.js"
 import reportsRoutes from "./routes/reportsRoutes.js"
+import recurringRoutes from "./routes/recurringRoutes.js"
+import goalRoutes from "./routes/goalRoutes.js"
+import gamificationRoutes from "./routes/gamificationRoutes.js"
 
 dotenv.config()
 
@@ -43,6 +46,9 @@ app.use("/api", transactionRoutes)
 app.use("/api/budget", budgetRoutes)
 app.use("/api/insights", insightsRoutes)
 app.use("/api/reports", reportsRoutes)
+app.use("/api/recurring", recurringRoutes)
+app.use("/api/goals", goalRoutes)
+app.use("/api/gamification", gamificationRoutes)
 
 /* =====================
    Mongo + Server
