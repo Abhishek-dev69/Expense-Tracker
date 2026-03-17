@@ -1,18 +1,58 @@
-import { Outlet } from "react-router-dom"
-import { useState } from "react"
+import { Outlet, Navigate, useLocation } from "react-router-dom"
+import { useState, useEffect } from "react"
 import Sidebar from "../../components/dashboard/Sidebar"
 import Topbar from "../../components/dashboard/Topbar"
 import AddIncomeModal from "../../components/dashboard/AddIncomeModal"
 import AddExpenseModal from "../../components/dashboard/AddExpenseModal"
 import { BASE_URL } from "../../utils/apiPaths"
 import { useAuth } from "../../context/AuthContext"
+import axios from "axios"
 
 const DashboardLayout = () => {
   const [showIncome, setShowIncome] = useState(false)
   const [showExpense, setShowExpense] = useState(false)
   const { token } = useAuth()
+  const location = useLocation()
 
   const authToken = token || localStorage.getItem("token")
+  const isDashboardHome = location.pathname === "/dashboard" || location.pathname === "/dashboard/"
+
+  // Auto-process recurring transactions on dashboard load
+  useEffect(() => {
+    const processRecurring = async () => {
+      if (!authToken) return
+      try {
+        await axios.post(`${BASE_URL}/api/recurring/process`, {}, {
+          headers: { Authorization: `Bearer ${authToken}` }
+        })
+      } catch (err) {
+        console.error("Auto-process error:", err)
+      }
+    }
+    processRecurring()
+  }, [authToken])
+
+  // Gamification: Sync streaks and badges on load
+  useEffect(() => {
+    const syncGamification = async () => {
+      if (!authToken) return
+      try {
+        await axios.post(`${BASE_URL}/api/gamification/check-streak`, {}, {
+          headers: { Authorization: `Bearer ${authToken}` }
+        })
+        await axios.post(`${BASE_URL}/api/gamification/sync-badges`, {}, {
+          headers: { Authorization: `Bearer ${authToken}` }
+        })
+      } catch (err) {
+        console.error("Gamification sync error:", err)
+      }
+    }
+    syncGamification()
+  }, [authToken])
+
+  if (!authToken) {
+    return <Navigate to="/login" replace />
+  }
 
   // ✅ ADD INCOME (FIXED API)
   const handleAddIncome = async (incomeData) => {
@@ -29,7 +69,7 @@ const DashboardLayout = () => {
       if (!res.ok) throw new Error("Failed to add income")
 
       setShowIncome(false)
-      window.location.reload() // simple refresh for now
+      window.location.reload()
     } catch (err) {
       console.error("Add income error:", err)
     }
@@ -57,47 +97,49 @@ const DashboardLayout = () => {
   }
 
   return (
-  <div className="relative flex h-screen text-white bg-[#0b1220] overflow-hidden">
+    <div className="relative flex h-screen text-white bg-[#0b1220] overflow-hidden">
 
-    {/* 🔥 Background Glow Effects */}
-    <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px]" />
-    <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px]" />
+      {/* 🔥 Background Glow Effects */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px]" />
+      <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px]" />
 
-    {/* Main Layout */}
-    <div className="relative flex w-full h-full">
+      {/* Main Layout */}
+      <div className="relative flex w-full h-full">
 
-      <Sidebar />
+        <Sidebar />
 
-      <div className="flex-1 flex flex-col h-full overflow-hidden">
+        <div className="flex-1 flex flex-col h-full overflow-hidden">
 
-        <Topbar
-          onAddIncome={() => setShowIncome(true)}
-          onAddExpense={() => setShowExpense(true)}
-        />
+          {isDashboardHome && (
+            <Topbar
+              onAddIncome={() => setShowIncome(true)}
+              onAddExpense={() => setShowExpense(true)}
+            />
+          )}
 
-        <main className="flex-1 px-10 py-10 overflow-y-auto">
-          <Outlet />
-        </main>
+          <main className={`flex-1 px-10 overflow-y-auto ${isDashboardHome ? "py-10" : "py-12"}`}>
+            <Outlet />
+          </main>
+
+        </div>
 
       </div>
 
+      {showIncome && (
+        <AddIncomeModal
+          onClose={() => setShowIncome(false)}
+          onSubmit={handleAddIncome}
+        />
+      )}
+
+      {showExpense && (
+        <AddExpenseModal
+          onClose={() => setShowExpense(false)}
+          onSubmit={handleAddExpense}
+        />
+      )}
     </div>
-
-    {showIncome && (
-      <AddIncomeModal
-        onClose={() => setShowIncome(false)}
-        onSubmit={handleAddIncome}
-      />
-    )}
-
-    {showExpense && (
-      <AddExpenseModal
-        onClose={() => setShowExpense(false)}
-        onSubmit={handleAddExpense}
-      />
-    )}
-  </div>
-)
+  )
 }
 
 export default DashboardLayout
