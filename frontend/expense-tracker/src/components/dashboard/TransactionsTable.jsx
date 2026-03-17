@@ -34,10 +34,11 @@ const TransactionsTable = ({
       ) : (
         <>
           {/* Header Row */}
-          <div className="relative grid grid-cols-4 text-sm text-gray-400 pb-4 border-b border-white/10">
-            <div>Type</div>
-            <div>Category</div>
+          <div className="relative grid grid-cols-5 text-xs font-bold text-gray-500 uppercase tracking-widest pb-4 border-b border-white/10">
             <div>Date</div>
+            <div>Title</div>
+            <div>Category</div>
+            <div>Type</div>
             <div className="text-right">Amount</div>
           </div>
 
@@ -49,14 +50,13 @@ const TransactionsTable = ({
               const date = new Date(t.date).toLocaleDateString("en-IN", {
                 day: "2-digit",
                 month: "short",
-                year: "numeric",
               })
 
               return (
                 <div
                   key={t._id}
                   className="
-                    grid grid-cols-4 items-center
+                    grid grid-cols-5 items-center
                     px-6 py-4 rounded-2xl
                     bg-[#1f2937]/70
                     backdrop-blur-md
@@ -67,23 +67,29 @@ const TransactionsTable = ({
                     transition-all duration-300
                   "
                 >
-                  <div className="font-medium text-white">
-                    {isIncome ? "Income" : "Expense"}
-                  </div>
-
-                  <div className="text-gray-300">
-                    {t.category}
-                  </div>
-
-                  <div className="text-gray-400">
+                  <div className="text-gray-400 text-sm">
                     {date}
                   </div>
 
+                  <div className="font-bold text-white truncate pr-4">
+                    {t.title || "Untitled"}
+                  </div>
+
+                  <div className="text-gray-300 text-sm italic">
+                    {t.category}
+                  </div>
+
+                  <div>
+                    <span className={`px-2 py-1 rounded-lg text-[10px] uppercase font-black ${isIncome ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}`}>
+                      {isIncome ? "Income" : "Expense"}
+                    </span>
+                  </div>
+
                   <div
-                    className={`text-right font-semibold tracking-wide ${
+                    className={`text-right font-black tabular-nums ${
                       isIncome
                         ? "text-emerald-400"
-                        : "text-red-400"
+                        : "text-white"
                     }`}
                   >
                     {isIncome ? "+" : "-"}₹
