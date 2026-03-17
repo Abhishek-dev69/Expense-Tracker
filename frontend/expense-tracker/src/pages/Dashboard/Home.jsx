@@ -4,6 +4,7 @@ import { BASE_URL } from "../../utils/apiPaths"
 
 import StatsGrid from "../../components/dashboard/StatsGrid"
 import TransactionsTable from "../../components/dashboard/TransactionsTable"
+import UpcomingBills from "../../components/dashboard/UpcomingBills"
 
 const Home = () => {
   const { token } = useAuth()
@@ -43,10 +44,20 @@ const Home = () => {
     fetchDashboard(page)
   }, [page])
 
-  if (!data || loading) return <p>Loading...</p>
+  if (!data || loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="w-8 h-8 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
+      </div>
+    )
+  }
 
   return (
-    <>
+    <div className="space-y-10 animate-in fade-in zoom-in duration-700">
+      
+      {/* 🔔 SMART NOTIFICATIONS */}
+      <UpcomingBills />
+
       <StatsGrid data={data} />
 
       <TransactionsTable
@@ -60,7 +71,7 @@ const Home = () => {
           setPage((p) => Math.max(p - 1, 1))
         }
       />
-    </>
+    </div>
   )
 }
 
