@@ -46,28 +46,30 @@ const Reports = () => {
     fetchReport()
   }, [fetchReport])
 
+  const handlePrint = () => {
+    window.print()
+  }
+
   const exportToCSV = () => {
     if (!report || !report.transactions.length) return
 
     const headers = ["Date", "Description", "Category", "Type", "Amount"]
     const rows = report.transactions.map(t => [
       new Date(t.date).toLocaleDateString(),
-      t.description,
-      t.category,
+      `"${t.description.replace(/"/g, '""')}"`,
+      `"${t.category}"`,
       t.type,
       t.amount
-    ])
+    ].join(","))
 
-    const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n")
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" })
+    const csvContent = [headers.join(","), ...rows].join("\n")
+    const blob = new Blob(["\ufeff" + csvContent], { type: "text/csv;charset=utf-8;" })
     const link = document.createElement("a")
     const url = URL.createObjectURL(blob)
-    link.setAttribute("href", url)
-    link.setAttribute("download", `Expense_Report_${selectedYear}_${selectedMonth}.csv`)
-    link.style.visibility = "hidden"
-    document.body.appendChild(link)
+    link.href = url
+    link.download = `Expense_Report_${selectedYear}_${selectedMonth}.csv`
     link.click()
-    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
   }
 
   const getComparison = (current, previous) => {
@@ -80,16 +82,19 @@ const Reports = () => {
   }
 
   if (loading && !report) return (
-    <div className="flex flex-col items-center justify-center h-64 space-y-4">
-      <FileText className="text-indigo-500 animate-pulse" size={48} />
-      <p className="text-gray-400 animate-pulse font-medium">Generating your report...</p>
+    <div className="flex flex-col items-center justify-center h-64 space-y-6">
+      <div className="relative">
+        <FileText className="text-indigo-500 animate-pulse" size={64} />
+        <div className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full animate-pulse" />
+      </div>
+      <p className="text-gray-400 font-black uppercase tracking-[0.3em] text-[10px]">Compiling Intelligence...</p>
     </div>
   )
 
   if (error) return (
-    <div className="p-8 rounded-3xl bg-rose-500/5 border border-rose-500/10 text-rose-400">
-      <p>{error}</p>
-      <button onClick={fetchReport} className="mt-4 text-sm font-bold underline">Try Again</button>
+    <div className="p-10 rounded-[2.5rem] bg-rose-500/5 border border-rose-500/10 text-rose-400 text-center">
+      <p className="font-bold">{error}</p>
+      <button onClick={fetchReport} className="mt-6 px-8 py-3 rounded-2xl bg-rose-500/10 hover:bg-rose-500/20 transition-all font-black uppercase tracking-widest text-xs">Try Again</button>
     </div>
   )
 
@@ -97,28 +102,37 @@ const Reports = () => {
   const expenseComp = getComparison(report?.expense, report?.previousMonth?.expense)
 
   return (
-    <div className="max-w-7xl mx-auto space-y-10 animate-in fade-in duration-700">
+    <div className="max-w-7xl mx-auto space-y-10 animate-in fade-in zoom-in duration-700 reports-page">
+      <style>{`
+        @media print {
+          .no-print { display: none !important; }
+          .reports-page { padding: 0 !important; margin: 0 !important; background: white !important; color: black !important; }
+          .reports-page h1, .reports-page h3, .reports-page p, .reports-page span, .reports-page td { color: black !important; }
+          .reports-page .bg-white\\/5 { background: transparent !important; border: 1px solid #eee !important; box-shadow: none !important; }
+          .reports-page .rounded-\\[2rem\\], .reports-page .rounded-3xl { border-radius: 8px !important; }
+        }
+      `}</style>
       
       {/* Header & Filters */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 no-print">
         <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+          <h1 className="text-3xl font-black text-white tracking-tighter flex items-center gap-3">
             <FileText className="text-indigo-400" size={32} />
-            Financial Reports
+            Financial Intelligence
           </h1>
-          <p className="text-gray-400 mt-1">Detailed breakdown of your financial activity</p>
+          <p className="text-gray-400 mt-1 font-medium">Deep-dive audit of your capital performance</p>
         </div>
 
-        <div className="flex items-center gap-4 bg-[#111827] p-2 rounded-2xl border border-white/10 shadow-xl">
-          <div className="flex items-center gap-2 px-3">
-            <Calendar size={18} className="text-gray-500" />
+        <div className="flex items-center gap-4 bg-white/5 backdrop-blur-xl p-2 rounded-2xl border border-white/10 shadow-2xl">
+          <div className="flex items-center gap-2 px-4">
+            <Calendar size={18} className="text-indigo-400" />
             <select 
               value={selectedMonth} 
               onChange={(e) => setSelectedMonth(Number(e.target.value))}
-              className="bg-transparent text-white font-semibold focus:outline-none cursor-pointer text-sm py-1"
+              className="bg-transparent text-white font-bold focus:outline-none cursor-pointer text-sm py-1.5"
             >
               {Array.from({ length: 12 }, (_, i) => (
-                <option key={i + 1} value={i + 1} className="bg-[#111827]">
+                <option key={i + 1} value={i + 1} className="bg-[#0b1220]">
                   {new Date(0, i).toLocaleString('default', { month: 'long' })}
                 </option>
               ))}
@@ -128,10 +142,10 @@ const Reports = () => {
           <select 
             value={selectedYear} 
             onChange={(e) => setSelectedYear(Number(e.target.value))}
-            className="bg-transparent text-white font-semibold focus:outline-none cursor-pointer px-3 text-sm py-1"
+            className="bg-transparent text-white font-bold focus:outline-none cursor-pointer px-4 text-sm py-1.5"
           >
             {[2024, 2025, 2026].map(year => (
-              <option key={year} value={year} className="bg-[#111827]">{year}</option>
+              <option key={year} value={year} className="bg-[#0b1220]">{year}</option>
             ))}
           </select>
         </div>
@@ -141,22 +155,22 @@ const Reports = () => {
         
         {/* Left: Summary Metrics */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="p-8 rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden relative group">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl -mr-16 -mt-16 transition-all group-hover:bg-indigo-500/20" />
+          <div className="p-8 rounded-[2.5rem] bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden relative group shadow-2xl">
+             <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/5 rounded-full blur-3xl -mr-24 -mt-24 transition-all group-hover:bg-indigo-500/10" />
              
-             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+             <h3 className="text-lg font-black text-white mb-8 flex items-center gap-2 uppercase tracking-tighter">
                <History size={18} className="text-indigo-400" />
-               Month Summary
+               Performance Audit
              </h3>
 
              <div className="space-y-8">
                <div className="relative z-10">
-                 <p className="text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Total Income</p>
+                 <p className="text-[10px] text-gray-500 uppercase font-black tracking-[0.2em] mb-2">Aggregate Income</p>
                  <div className="flex items-end gap-3">
-                   <p className="text-3xl font-bold text-white tabular-nums">₹{report?.income.toLocaleString()}</p>
+                   <p className="text-3xl font-black text-white tabular-nums tracking-tighter">₹{report?.income.toLocaleString()}</p>
                    {incomeComp && (
-                     <span className={`text-xs font-bold flex items-center mb-1.5 ${incomeComp.isIncrease ? 'text-emerald-400' : 'text-rose-400'}`}>
-                       {incomeComp.isIncrease ? <TrendingUp size={12} className="mr-1" /> : <TrendingDown size={12} className="mr-1" />}
+                     <span className={`text-[11px] font-black flex items-center mb-1.5 px-2 py-0.5 rounded-lg ${incomeComp.isIncrease ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}`}>
+                       {incomeComp.isIncrease ? <TrendingUp size={10} className="mr-1" /> : <TrendingDown size={10} className="mr-1" />}
                        {incomeComp.value}%
                      </span>
                    )}
@@ -164,34 +178,43 @@ const Reports = () => {
                </div>
 
                <div className="relative z-10">
-                 <p className="text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Total Expenses</p>
+                 <p className="text-[10px] text-gray-500 uppercase font-black tracking-[0.2em] mb-2">Aggregate Expenses</p>
                  <div className="flex items-end gap-3">
-                   <p className="text-3xl font-bold text-white tabular-nums">₹{report?.expense.toLocaleString()}</p>
+                   <p className="text-3xl font-black text-white tabular-nums tracking-tighter">₹{report?.expense.toLocaleString()}</p>
                    {expenseComp && (
-                     <span className={`text-xs font-bold flex items-center mb-1.5 ${expenseComp.isIncrease ? 'text-rose-400' : 'text-emerald-400'}`}>
-                       {expenseComp.isIncrease ? <TrendingUp size={12} className="mr-1" /> : <TrendingDown size={12} className="mr-1" />}
+                     <span className={`text-[11px] font-black flex items-center mb-1.5 px-2 py-0.5 rounded-lg ${expenseComp.isIncrease ? 'bg-rose-500/10 text-rose-400' : 'bg-emerald-500/10 text-emerald-400'}`}>
+                       {expenseComp.isIncrease ? <TrendingUp size={10} className="mr-1" /> : <TrendingDown size={10} className="mr-1" />}
                        {expenseComp.value}%
                      </span>
                    )}
                  </div>
                </div>
 
-               <div className={`p-6 rounded-3xl border transition-all ${report?.balance >= 0 ? 'bg-emerald-500/5 border-emerald-500/10' : 'bg-rose-500/5 border-rose-500/10'}`}>
-                 <p className="text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Net Flow</p>
-                 <p className={`text-2xl font-bold tabular-nums ${report?.balance >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+               <div className={`p-6 rounded-3xl border transition-all ${report?.balance >= 0 ? 'bg-emerald-500/5 border-emerald-500/10' : 'bg-rose-500/5 border-rose-500/10 shadow-rose-500/5 shadow-inner'}`}>
+                 <p className="text-[10px] text-gray-500 uppercase font-black tracking-[0.2em] mb-2">Net Financial Flow</p>
+                 <p className={`text-4xl font-black tabular-nums tracking-tighter ${report?.balance >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
                    ₹{report?.balance.toLocaleString()}
                  </p>
                </div>
              </div>
           </div>
 
-          <button 
-            onClick={exportToCSV}
-            className="w-full p-6 rounded-[2rem] bg-indigo-500 hover:bg-indigo-600 text-white font-bold transition-all shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-3 active:scale-95"
-          >
-            <Download size={20} />
-            Export Monthly Report
-          </button>
+          <div className="grid grid-cols-2 gap-4 no-print">
+            <button 
+              onClick={exportToCSV}
+              className="p-6 rounded-3xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs transition-all shadow-xl hover:bg-white/10 flex flex-col items-center justify-center gap-3 active:scale-95"
+            >
+              <Download size={20} className="text-gray-400" />
+              <span>CSV</span>
+            </button>
+            <button 
+              onClick={handlePrint}
+              className="p-6 rounded-3xl bg-indigo-500 text-white font-black uppercase tracking-widest text-xs transition-all shadow-xl shadow-indigo-500/20 hover:bg-indigo-600 flex flex-col items-center justify-center gap-3 active:scale-95"
+            >
+              <FileText size={20} />
+              <span>PDF / Print</span>
+            </button>
+          </div>
         </div>
 
         {/* Right: Detailed Breakdown & Transactions */}
