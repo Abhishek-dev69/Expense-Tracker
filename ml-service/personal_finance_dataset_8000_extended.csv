@@ -7999,3 +7999,503 @@ Date,Description,Amount,Category,PaymentMethod,Location,AccountType,TransactionT
 2025-02-28,Transaction at Pizza Hut,199.17,Food,Net Banking,Delhi,Salary,Debit,POS Terminal,INR,Restaurant,Yes,Friday,February,Afternoon
 2025-02-22,Transaction at BigBazaar,1035.78,Grocery,UPI,Hyderabad,Current,Debit,Mobile,INR,Retail,Yes,Saturday,February,Morning
 2025-03-13,Transaction at Netmeds,15118.17,Healthcare,Debit Card,Kolkata,Current,Debit,POS Terminal,INR,Service,No,Thursday,March,Night
+2026-03-17,Auto rickshaw fare,191.37,Transport,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile recharge for father,4551.07,Bills,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Weekly groceries from BigBazaar,1671.65,Grocery,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,692.43,Transport,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Movie tickets for weekend,313.45,Entertainment,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Gas cylinder booking,8362.24,Bills,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,161.02,Healthcare,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile phone at Apple Store,38881.33,Electronics,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,3703.1,Online Shopping,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,4414.16,Clothing,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,1895.88,Food,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotel stay in Mumbai,44807.35,Travel,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile recharge for father,8555.97,Bills,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Household supplies,852.1,Grocery,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,1428.66,Food,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Television and speakers,13388.03,Electronics,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,5448.26,Online Shopping,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,511.08,Online Shopping,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Movie tickets for weekend,1405.66,Entertainment,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Property tax online payment,8692.91,Bills,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,28086.41,Travel,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought medicines from pharmacy,1122.04,Healthcare,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vacation expenses,40920.77,Travel,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,4211.62,Clothing,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Restaurant bill for family dinner,313.83,Food,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,33335.09,Electronics,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,1554.71,Clothing,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,9598.6,Online Shopping,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Gas cylinder booking,9129.85,Bills,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile phone at Apple Store,43937.72,Electronics,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Property tax online payment,4467.99,Bills,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Pathology lab test charges,915.0,Healthcare,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,1762.08,Grocery,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus booking RedBus,34390.89,Travel,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Samosa and tea,1396.22,Food,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,5207.01,Online Shopping,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile phone at Apple Store,22304.71,Electronics,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,43857.85,Travel,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Doctor consultation fee,866.37,Healthcare,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Amazon order for shoes,2184.46,Online Shopping,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Diesel for generator,702.81,Transport,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Supermarket items,895.13,Grocery,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dental checkup,1371.41,Healthcare,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,9286.26,Bills,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Movie tickets for weekend,328.6,Entertainment,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,5245.79,Online Shopping,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ordered biryani from Zomato,1633.11,Food,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Burger and fries,1596.12,Food,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Amazon order for shoes,6801.59,Online Shopping,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,315.41,Healthcare,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,1745.07,Transport,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vistara flight booking,11339.69,Travel,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Gas cylinder booking,989.27,Bills,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,8580.32,Online Shopping,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,823.77,Grocery,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Supermarket items,386.48,Grocery,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,4838.41,Clothing,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Restaurant bill for family dinner,229.88,Food,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,13021.94,Electronics,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Fruits and vegetables from market,249.67,Grocery,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Pathology lab test charges,1069.51,Healthcare,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,885.92,Grocery,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ola cab for commute,647.02,Transport,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotstar VIP subscription,1062.09,Entertainment,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Movie tickets for weekend,1850.0,Entertainment,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,1665.67,Entertainment,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dental checkup,566.7,Healthcare,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Gas cylinder booking,6183.86,Bills,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,4077.29,Bills,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ordered biryani from Zomato,674.21,Food,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,441.74,Food,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotstar VIP subscription,1444.39,Entertainment,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought milk and bread,1066.45,Grocery,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Auto rickshaw fare,1210.79,Transport,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Restaurant bill for family dinner,359.23,Food,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,1291.77,Entertainment,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Credit card bill payment,3009.44,Bills,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Monthly electricity bill payment,2103.41,Bills,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,8007.27,Online Shopping,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,T-shirt and jacket,6906.94,Clothing,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,68.76,Entertainment,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Credit card bill payment,9082.63,Bills,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Camera accessories,12913.52,Electronics,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus ticket fare,1252.19,Transport,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dental checkup,1465.95,Healthcare,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,455.73,Transport,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,826.11,Healthcare,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,8340.24,Online Shopping,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Burger and fries,76.89,Food,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Credit card bill payment,2075.23,Bills,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,3711.25,Online Shopping,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Lunch at office cafeteria,1485.04,Food,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,70.53,Healthcare,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotel stay in Mumbai,46761.85,Travel,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,109.67,Grocery,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Pathology lab test charges,304.11,Healthcare,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,582.09,Food,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought medicines from pharmacy,1134.1,Healthcare,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,1148.59,Grocery,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Game credits purchase,1590.39,Entertainment,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,4546.25,Clothing,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought vitamins and supplements,236.14,Healthcare,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Samosa and tea,1410.38,Food,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vistara flight booking,37687.88,Travel,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought vitamins and supplements,881.15,Healthcare,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Samosa and tea,1142.4,Food,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,9974.91,Online Shopping,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Rapido bike taxi,414.85,Transport,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,14427.93,Electronics,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,9718.62,Bills,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotstar VIP subscription,80.96,Entertainment,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,1872.75,Entertainment,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Burger and fries,1302.11,Food,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,8763.89,Clothing,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Lunch at office cafeteria,768.09,Food,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,7541.66,Electronics,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Water bill for March,2391.38,Bills,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ola cab for commute,926.2,Transport,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,1082.65,Grocery,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,743.15,Food,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,1496.25,Entertainment,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,222.07,Entertainment,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Television and speakers,17039.98,Electronics,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,9784.5,Clothing,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,1251.66,Online Shopping,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,24084.81,Electronics,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,6660.89,Bills,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Supermarket items,1001.38,Grocery,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,6522.45,Clothing,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,7350.84,Online Shopping,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile phone at Apple Store,22227.09,Electronics,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,1830.49,Food,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Monthly electricity bill payment,6075.69,Bills,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,881.72,Entertainment,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Eye clinic visit,85.4,Healthcare,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Camera accessories,45052.54,Electronics,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotel stay in Mumbai,19184.88,Travel,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Household supplies,266.52,Grocery,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flipkart shopping,3263.05,Online Shopping,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,9336.77,Online Shopping,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,4062.43,Online Shopping,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,42923.24,Electronics,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dental checkup,1012.63,Healthcare,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,3821.43,Online Shopping,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flipkart shopping,2678.02,Online Shopping,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,1475.91,Entertainment,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus booking RedBus,47938.62,Travel,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Lunch at office cafeteria,1326.95,Food,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Supermarket items,531.89,Grocery,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,12442.31,Electronics,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a new shirt from Zara,2927.38,Clothing,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,1187.05,Bills,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,2007.93,Bills,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,1781.45,Clothing,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,1593.2,Grocery,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,1902.89,Grocery,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Television and speakers,44808.1,Electronics,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Burger and fries,1870.92,Food,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,1482.74,Clothing,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,4383.27,Clothing,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flipkart shopping,9243.06,Online Shopping,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,990.47,Transport,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Fruits and vegetables from market,70.42,Grocery,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought milk and bread,797.24,Grocery,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,2386.48,Online Shopping,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Monthly electricity bill payment,2572.91,Bills,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vacation expenses,48866.75,Travel,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Rapido bike taxi,1701.86,Transport,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotstar VIP subscription,1264.26,Entertainment,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,8855.91,Travel,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,1640.61,Clothing,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,36607.16,Electronics,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,1783.59,Online Shopping,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,8584.49,Bills,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Lunch at office cafeteria,1563.48,Food,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile recharge for father,3230.76,Bills,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Game credits purchase,808.56,Entertainment,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,1304.13,Food,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,359.45,Food,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Credit card bill payment,745.2,Bills,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,2658.73,Clothing,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Diesel for generator,1243.99,Transport,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,5140.53,Clothing,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vacation expenses,39536.02,Travel,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,1712.35,Entertainment,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,3529.4,Bills,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ordered biryani from Zomato,524.54,Food,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought medicines from pharmacy,421.29,Healthcare,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Burger and fries,1620.72,Food,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Amazon order for shoes,5343.22,Online Shopping,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Amazon order for shoes,2973.36,Online Shopping,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,1647.65,Online Shopping,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,5553.41,Clothing,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,37906.62,Travel,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Rapido bike taxi,575.12,Transport,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,44776.91,Electronics,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,4440.45,Clothing,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,1625.78,Grocery,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,7744.81,Clothing,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Lunch at office cafeteria,519.33,Food,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,32999.84,Travel,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile recharge for father,564.03,Bills,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,1246.69,Food,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus ticket fare,1038.95,Transport,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,9806.73,Clothing,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,603.17,Clothing,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,497.33,Transport,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,9927.23,Travel,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Game credits purchase,1397.52,Entertainment,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,40028.05,Electronics,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,1082.79,Transport,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,1877.92,Entertainment,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,6669.69,Online Shopping,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotstar VIP subscription,1920.98,Entertainment,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Movie tickets for weekend,965.43,Entertainment,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Fruits and vegetables from market,1679.76,Grocery,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Restaurant bill for family dinner,1245.35,Food,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,49285.42,Travel,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,9450.41,Online Shopping,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotel stay in Mumbai,15380.35,Travel,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Concert tickets,334.19,Entertainment,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,1744.49,Grocery,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,623.23,Grocery,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dental checkup,1073.77,Healthcare,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought milk and bread,1232.57,Grocery,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vistara flight booking,36452.16,Travel,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Property tax online payment,5626.78,Bills,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,1937.68,Healthcare,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Camera accessories,45692.16,Electronics,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,1634.84,Clothing,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,566.25,Transport,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Game credits purchase,1236.1,Entertainment,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vistara flight booking,26469.34,Travel,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,1165.73,Transport,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Water bill for March,2215.9,Bills,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,1380.25,Grocery,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Weekly groceries from BigBazaar,1922.22,Grocery,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,T-shirt and jacket,4488.36,Clothing,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,397.46,Healthcare,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,149.16,Food,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,894.85,Grocery,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotstar VIP subscription,411.57,Entertainment,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Household supplies,1383.42,Grocery,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Doctor consultation fee,1680.21,Healthcare,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Monthly electricity bill payment,6939.95,Bills,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Doctor consultation fee,280.07,Healthcare,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,5067.01,Bills,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,3472.86,Online Shopping,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Samosa and tea,281.64,Food,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,3914.66,Bills,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,973.51,Entertainment,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,6715.46,Clothing,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotel stay in Mumbai,35948.13,Travel,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Property tax online payment,7972.21,Bills,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vacation expenses,46405.31,Travel,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,7384.95,Clothing,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,712.32,Grocery,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,31821.53,Travel,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,619.83,Food,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,519.96,Transport,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Property tax online payment,6236.02,Bills,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Rapido bike taxi,360.3,Transport,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus ticket fare,581.37,Transport,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,13681.0,Travel,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a new shirt from Zara,4145.29,Clothing,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus booking RedBus,17842.44,Travel,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Household supplies,759.95,Grocery,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotel stay in Mumbai,13680.56,Travel,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Monthly electricity bill payment,8469.96,Bills,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Diesel for generator,176.29,Transport,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,728.17,Healthcare,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,1379.84,Transport,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,984.74,Bills,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,1423.87,Grocery,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Supermarket items,1868.78,Grocery,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,36177.7,Travel,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,821.55,Food,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Eye clinic visit,1673.05,Healthcare,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,149.8,Transport,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,1125.67,Grocery,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,981.58,Transport,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,782.18,Entertainment,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Property tax online payment,9213.37,Bills,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Doctor consultation fee,494.24,Healthcare,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,6638.55,Bills,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,814.27,Transport,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,11692.11,Travel,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,788.04,Food,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Concert tickets,1413.99,Entertainment,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,5379.8,Online Shopping,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,427.88,Transport,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,50.63,Transport,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,357.7,Entertainment,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,6713.7,Online Shopping,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Game credits purchase,1473.75,Entertainment,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ordered biryani from Zomato,1745.86,Food,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,134.07,Transport,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Supermarket items,567.96,Grocery,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Fruits and vegetables from market,431.41,Grocery,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Credit card bill payment,8103.06,Bills,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,1247.03,Healthcare,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Camera accessories,15091.62,Electronics,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,1298.24,Grocery,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ola cab for commute,832.79,Transport,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Water bill for March,9617.1,Bills,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,T-shirt and jacket,1407.42,Clothing,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Water bill for March,2920.96,Bills,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,24033.89,Travel,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Diesel for generator,1251.3,Transport,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,7076.06,Travel,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,2326.61,Clothing,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,4677.62,Clothing,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,232.24,Transport,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Household supplies,222.43,Grocery,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,3744.12,Bills,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,3205.22,Clothing,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Pathology lab test charges,354.25,Healthcare,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,847.96,Transport,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vacation expenses,38007.32,Travel,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Movie tickets for weekend,232.19,Entertainment,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vistara flight booking,28465.49,Travel,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Monthly electricity bill payment,9234.74,Bills,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,790.77,Grocery,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus ticket fare,1111.85,Transport,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,9194.11,Bills,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,2885.2,Online Shopping,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Auto rickshaw fare,448.08,Transport,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus ticket fare,1792.04,Transport,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Amazon order for shoes,6255.25,Online Shopping,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ola cab for commute,1061.04,Transport,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,1087.26,Transport,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Supermarket items,1398.92,Grocery,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Concert tickets,470.85,Entertainment,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,1740.41,Transport,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Restaurant bill for family dinner,1907.55,Food,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,3521.66,Clothing,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Reliance Fresh shopping,1851.92,Grocery,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus booking RedBus,10393.45,Travel,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,1202.63,Online Shopping,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,9115.05,Online Shopping,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,1377.87,Transport,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Fruits and vegetables from market,1077.54,Grocery,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,29199.09,Electronics,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Doctor consultation fee,976.11,Healthcare,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dental checkup,1686.38,Healthcare,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus booking RedBus,28392.03,Travel,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile phone at Apple Store,13097.13,Electronics,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vacation expenses,37514.53,Travel,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,25589.05,Electronics,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought milk and bread,1270.5,Grocery,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Concert tickets,152.49,Entertainment,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Weekly groceries from BigBazaar,1072.02,Grocery,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,1939.25,Clothing,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile phone at Apple Store,15324.52,Electronics,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,2781.12,Bills,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,21786.89,Travel,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,460.29,Transport,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Pathology lab test charges,1016.94,Healthcare,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,8987.4,Online Shopping,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Credit card bill payment,5417.29,Bills,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vistara flight booking,28806.08,Travel,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Burger and fries,1890.17,Food,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,1523.26,Transport,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Water bill for March,7247.68,Bills,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Lunch at office cafeteria,1865.93,Food,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,5270.93,Clothing,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ordered biryani from Zomato,1435.61,Food,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,5017.59,Clothing,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Movie tickets for weekend,1679.14,Entertainment,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,1359.3,Healthcare,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,254.81,Transport,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flipkart shopping,8260.64,Online Shopping,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile phone at Apple Store,20047.48,Electronics,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus booking RedBus,47195.63,Travel,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,9444.3,Online Shopping,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Samosa and tea,1623.49,Food,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,31198.95,Travel,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ola cab for commute,1734.62,Transport,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,1031.82,Food,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,15389.1,Electronics,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,6544.39,Bills,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,1134.84,Grocery,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Camera accessories,36950.28,Electronics,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought vitamins and supplements,1865.88,Healthcare,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,2858.7,Clothing,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Auto rickshaw fare,906.22,Transport,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Eye clinic visit,1280.64,Healthcare,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,32168.52,Electronics,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,25680.31,Electronics,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Eye clinic visit,483.33,Healthcare,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought vitamins and supplements,1123.27,Healthcare,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,1761.47,Transport,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Morning coffee and snack,660.52,Food,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Levi's jeans purchase,6948.44,Clothing,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus booking RedBus,7383.67,Travel,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought milk and bread,706.96,Grocery,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ordered biryani from Zomato,1271.66,Food,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Water bill for March,8104.1,Bills,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,31273.3,Electronics,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Rapido bike taxi,382.2,Transport,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Fruits and vegetables from market,1571.74,Grocery,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Water bill for March,5433.98,Bills,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,18844.97,Travel,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vistara flight booking,28384.43,Travel,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,864.72,Entertainment,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Doctor consultation fee,892.82,Healthcare,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Fruits and vegetables from market,939.5,Grocery,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Fruits and vegetables from market,632.61,Grocery,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,3305.51,Online Shopping,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,1422.15,Food,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Television and speakers,38240.57,Electronics,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Airtel broadband bill,6304.83,Bills,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought milk and bread,681.12,Grocery,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Auto rickshaw fare,377.09,Transport,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Shoes from Adidas store,5922.81,Clothing,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,1102.37,Transport,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought vitamins and supplements,1100.26,Healthcare,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Auto rickshaw fare,751.76,Transport,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flight ticket to Delhi,34619.92,Travel,Credit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Rapido bike taxi,1385.41,Transport,Net Banking,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Concert tickets,957.38,Entertainment,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought milk and bread,733.23,Grocery,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,6223.68,Online Shopping,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,T-shirt and jacket,3235.25,Clothing,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,588.22,Transport,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Electronic gadgets purchase,48447.08,Electronics,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Weekly groceries from BigBazaar,1949.8,Grocery,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Game credits purchase,767.06,Entertainment,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,43976.37,Electronics,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Rapido bike taxi,324.38,Transport,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Credit card bill payment,9872.31,Bills,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,987.45,Grocery,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,26528.66,Travel,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Monthly electricity bill payment,6254.79,Bills,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Television and speakers,27256.88,Electronics,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Samosa and tea,1870.63,Food,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Eye clinic visit,671.56,Healthcare,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Breakfast at hotel,1284.46,Food,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Lunch at office cafeteria,360.0,Food,Net Banking,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Train booking IRCTC,38650.03,Travel,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,660.38,Food,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,2351.24,Bills,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,9636.1,Clothing,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus ticket fare,1021.24,Transport,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Amazon order for shoes,3100.62,Online Shopping,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,9443.55,Online Shopping,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Household supplies,1730.45,Grocery,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,546.67,Entertainment,UPI,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ordered biryani from Zomato,1353.49,Food,Debit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ola cab for commute,1164.82,Transport,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Mobile phone at Apple Store,14735.5,Electronics,Credit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Weekly groceries from BigBazaar,1114.23,Grocery,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bus ticket fare,270.18,Transport,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought vitamins and supplements,1890.2,Healthcare,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,1789.92,Transport,UPI,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,1936.31,Food,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought milk and bread,1551.2,Grocery,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Game credits purchase,1861.37,Entertainment,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought medicines from pharmacy,364.07,Healthcare,Debit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought headphones from Myntra,9869.82,Online Shopping,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Petrol for car,1970.46,Transport,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Internet bill,7522.3,Bills,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Online purchase from Snapdeal,2573.8,Online Shopping,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Clothing shopping at Mall,975.87,Clothing,Debit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Monthly electricity bill payment,2969.06,Bills,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,1751.83,Transport,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hospital bill,1433.62,Healthcare,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,4819.86,Online Shopping,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Flipkart shopping,4435.84,Online Shopping,UPI,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,1278.94,Food,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Camera accessories,34035.89,Electronics,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Ajio clothing order,6192.43,Online Shopping,Credit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Television and speakers,34963.43,Electronics,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Movie tickets for weekend,1323.25,Entertainment,Debit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Lunch at office cafeteria,209.17,Food,Debit Card,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought vitamins and supplements,1007.09,Healthcare,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Credit card bill payment,7903.7,Bills,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Vistara flight booking,14819.91,Travel,UPI,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Supermarket items,1966.69,Grocery,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Property tax online payment,5647.42,Bills,UPI,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Amazon order for shoes,9377.07,Online Shopping,Net Banking,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,746.92,Transport,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Auto rickshaw fare,1735.95,Transport,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dental checkup,1652.03,Healthcare,Debit Card,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Television and speakers,25759.3,Electronics,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Bought a laptop from Dell,47822.1,Electronics,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Water bill for March,6083.36,Bills,Net Banking,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Uber ride to airport,1338.48,Transport,Credit Card,Mumbai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Netflix monthly subscription,1794.54,Entertainment,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Weekly groceries from BigBazaar,103.11,Grocery,Credit Card,Kolkata,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,51.43,Entertainment,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Diesel for generator,1574.23,Transport,UPI,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Dinner with friends at pizza hut,777.57,Food,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Kirana store bill,820.77,Grocery,Net Banking,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Diesel for generator,1365.66,Transport,UPI,Bangalore,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,990.46,Entertainment,Debit Card,Hyderabad,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Metro card recharge,82.63,Transport,Credit Card,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Hotel stay in Mumbai,27092.87,Travel,Credit Card,Delhi,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Spotify premium,1597.42,Entertainment,Net Banking,Chennai,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
+2026-03-17,Doctor consultation fee,942.64,Healthcare,Net Banking,Pune,Savings,Debit,Mobile,INR,Various,No,Various,Various,Various
