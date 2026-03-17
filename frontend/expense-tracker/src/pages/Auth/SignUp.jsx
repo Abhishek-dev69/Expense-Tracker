@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AUTH_API } from "../../utils/apiPaths"
 import { useAuth } from "../../context/AuthContext"
+import { User, Mail, Lock, UserPlus, Sparkles } from "lucide-react"
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -35,7 +36,7 @@ const SignUp = () => {
       const data = await res.json()
       if (!res.ok) throw new Error(data.message || "Signup failed")
 
-      login(data.token)       // ✅ FIX
+      login(data.token)
       navigate("/dashboard")
     } catch (err) {
       setError(err.message)
@@ -46,75 +47,122 @@ const SignUp = () => {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
-        <h2 className="text-2xl font-semibold text-gray-900">
-          Create an account
-        </h2>
-        <p className="text-sm text-gray-500 mt-1">
-          Start tracking your expenses today.
-        </p>
+    <div className="relative min-h-screen flex items-center justify-center bg-[#0b1220] text-white overflow-hidden p-6 text-center lg:text-left">
+      
+      {/* 🔥 Background Glow Effects */}
+      <div className="absolute top-[-200px] right-[-200px] w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[150px] animate-pulse" />
+      <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[150px] animate-pulse" />
 
-        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-emerald-500"
-            />
+      <div className="relative w-full max-w-md animate-in fade-in zoom-in duration-700">
+        
+        {/* Logo/Brand Section */}
+        <div className="flex flex-col items-center mb-8">
+          <div className="w-16 h-16 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center mb-6 shadow-2xl group transition-all duration-500 hover:border-indigo-500/50">
+            <Sparkles className="text-indigo-400 group-hover:scale-110 transition-transform" size={32} />
+          </div>
+          <h1 className="text-4xl font-black tracking-tighter text-white mb-2">
+            FinTrack <span className="text-emerald-400">AI</span>
+          </h1>
+          <p className="text-gray-400 font-medium italic">Your Journey to Financial Freedom Starts Here</p>
+        </div>
+
+        {/* glassmorphism Card */}
+        <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 shadow-[0_32px_64px_rgba(0,0,0,0.5)]">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-white tracking-tight">Create Account</h2>
+            <p className="text-gray-400 mt-2 text-sm leading-relaxed">
+              Join thousands of users who are smarter with their money.
+            </p>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-emerald-500"
-            />
+          <form onSubmit={handleSubmit} className="space-y-5 text-left">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
+                Full Name
+              </label>
+              <div className="relative group">
+                <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-emerald-400 transition-colors" size={18} />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="John Doe"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
+                Email Address
+              </label>
+              <div className="relative group">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-emerald-400 transition-colors" size={18} />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="name@company.com"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
+                Password
+              </label>
+              <div className="relative group">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-emerald-400 transition-colors" size={18} />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="••••••••"
+                  value={form.password}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
+                />
+              </div>
+            </div>
+
+            {error && (
+              <div className="bg-rose-500/10 border border-rose-500/20 text-rose-400 text-sm p-4 rounded-xl flex items-center gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+                {error}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full relative group overflow-hidden bg-gradient-to-r from-emerald-500 to-indigo-600 p-[1px] rounded-2xl shadow-xl hover:shadow-indigo-500/20 transition-all active:scale-[0.98] mt-4"
+            >
+              <div className="bg-[#0b1220] group-hover:bg-transparent px-8 py-4 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3">
+                <span className="text-white font-bold tracking-tight">
+                  {loading ? "Creating secure account..." : "Start Tracking Now"}
+                </span>
+                {!loading && <UserPlus size={18} className="text-emerald-400 group-hover:text-white transition-colors" />}
+              </div>
+            </button>
+          </form>
+
+          <div className="mt-8 text-center border-t border-white/5 pt-6">
+            <p className="text-gray-500 text-sm font-medium">
+              Already using FinTrack AI?{" "}
+              <Link 
+                to="/login" 
+                className="text-white hover:text-emerald-400 font-bold underline underline-offset-4 decoration-emerald-500/50 transition-all"
+              >
+                Sign in instead
+              </Link>
+            </p>
           </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              value={form.password}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-emerald-500"
-            />
-          </div>
-
-          {error && <p className="text-red-500 text-sm">{error}</p>}
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-lg font-medium transition"
-          >
-            {loading ? "Creating account..." : "Sign Up"}
-          </button>
-        </form>
-
-        <p className="text-sm text-center text-gray-600 mt-6">
-          Already have an account?{" "}
-          <Link to="/login" className="text-emerald-500 font-medium">
-            Log in
-          </Link>
-        </p>
+        </div>
       </div>
     </div>
   )
