@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { Search, Trash2 } from "lucide-react"
+import { Search, Trash2, Download } from "lucide-react"
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState([])
@@ -51,8 +51,37 @@ const Transactions = () => {
     }
   }
 
+  // ✅ EXPORT CSV
+  const handleExportCSV = () => {
+    if (transactions.length === 0) return
+
+    // Define headers
+    const headers = ["Date", "Category", "Title", "Type", "Amount"]
+    
+    // Format rows
+    const rows = transactions.map(tx => [
+      new Date(tx.date).toLocaleDateString(),
+      `"${tx.category}"`, // Quote to handle commas
+      `"${tx.title}"`,
+      tx.type,
+      tx.amount
+    ].join(","))
+
+    // Combine
+    const csvContent = [headers.join(","), ...rows].join("\n")
+    
+    // Create Blob and trigger download
+    const blob = new Blob(["\ufeff" + csvContent], { type: "text/csv;charset=utf-8;" })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.download = `transactions_${new Date().toISOString().split('T')[0]}.csv`
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 animate-in fade-in duration-700">
 
       {/* HEADER */}
       <div className="flex justify-between items-center">
@@ -60,23 +89,34 @@ const Transactions = () => {
           Transactions
         </h2>
 
-        {/* Search */}
-        <div className="relative">
-          <Search className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search transactions..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="
-              pl-9 pr-4 py-2 w-72 rounded-xl
-              bg-[#1f2937]
-              border border-white/10
-              text-white
-              focus:outline-none focus:border-emerald-500
-              transition
-            "
-          />
+        <div className="flex items-center gap-4">
+          {/* Export Button */}
+          <button
+            onClick={handleExportCSV}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all font-medium text-sm"
+          >
+            <Download size={16} />
+            Export CSV
+          </button>
+
+          {/* Search */}
+          <div className="relative">
+            <Search className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search transactions..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="
+                pl-9 pr-4 py-2 w-72 rounded-xl
+                bg-white/5
+                border border-white/10
+                text-white
+                focus:outline-none focus:border-emerald-500/50
+                transition-all
+              "
+            />
+          </div>
         </div>
       </div>
 
@@ -84,10 +124,10 @@ const Transactions = () => {
       {loading ? (
         <div className="text-gray-400">Loading transactions...</div>
       ) : (
-        <div className="rounded-2xl bg-[#111827] border border-white/10 shadow-lg">
+        <div className="rounded-2xl bg-white/5 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md">
 
           {/* Table Header */}
-          <div className="grid grid-cols-6 px-6 py-4 text-sm text-gray-400 border-b border-white/10">
+          <div className="grid grid-cols-6 px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-white/5">
             <div>Date</div>
             <div>Category</div>
             <div>Title</div>
@@ -104,15 +144,15 @@ const Transactions = () => {
                 className="
                   grid grid-cols-6 items-center
                   px-6 py-4
-                  hover:bg-[#1f2937]
-                  transition
+                  hover:bg-white/5
+                  transition-all
                 "
               >
-                <div className="text-gray-300">
+                <div className="text-gray-300 text-sm">
                   {new Date(tx.date).toLocaleDateString()}
                 </div>
 
-                <div className="text-gray-300">
+                <div className="text-gray-300 text-sm italic">
                   {tx.category}
                 </div>
 
@@ -123,11 +163,11 @@ const Transactions = () => {
                 <div>
                   <span
                     className={`
-                      px-3 py-1 text-xs rounded-full font-medium
+                      px-3 py-1 text-[10px] font-black uppercase tracking-tighter rounded-lg
                       ${
                         tx.type === "income"
-                          ? "bg-emerald-500/15 text-emerald-400"
-                          : "bg-red-500/15 text-red-400"
+                          ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                          : "bg-red-500/10 text-red-400 border border-red-500/20"
                       }
                     `}
                   >
@@ -136,7 +176,7 @@ const Transactions = () => {
                 </div>
 
                 <div
-                  className={`text-right font-semibold ${
+                  className={`text-right font-bold ${
                     tx.type === "income"
                       ? "text-emerald-400"
                       : "text-red-400"
@@ -148,7 +188,7 @@ const Transactions = () => {
                 <div className="text-right">
                   <button
                     onClick={() => deleteTransaction(tx._id)}
-                    className="text-gray-400 hover:text-red-400 transition"
+                    className="p-2 rounded-lg hover:bg-rose-500/10 text-gray-500 hover:text-rose-400 transition-all active:scale-95"
                   >
                     <Trash2 size={16} />
                   </button>
@@ -158,23 +198,23 @@ const Transactions = () => {
           </div>
 
           {/* Pagination */}
-          <div className="flex justify-between items-center px-6 py-4 border-t border-white/10 text-sm text-gray-400">
+          <div className="flex justify-between items-center px-6 py-4 border-t border-white/5 text-sm text-gray-400">
             <button
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
-              className="px-4 py-2 rounded-lg bg-[#1f2937] hover:bg-[#273449] disabled:opacity-40 transition"
+              className="px-6 py-2 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 disabled:opacity-40 transition-all font-bold text-xs uppercase"
             >
               Prev
             </button>
 
-            <span>
-              Page {page} of {totalPages}
+            <span className="font-medium tracking-wide">
+              Page <span className="text-emerald-400">{page}</span> of <span className="text-white">{totalPages}</span>
             </span>
 
             <button
               disabled={page === totalPages}
               onClick={() => setPage(page + 1)}
-              className="px-4 py-2 rounded-lg bg-[#1f2937] hover:bg-[#273449] disabled:opacity-40 transition"
+              className="px-6 py-2 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 disabled:opacity-40 transition-all font-bold text-xs uppercase"
             >
               Next
             </button>
