@@ -5,6 +5,7 @@ import { BASE_URL } from "../../utils/apiPaths"
 import StatsGrid from "../../components/dashboard/StatsGrid"
 import TransactionsTable from "../../components/dashboard/TransactionsTable"
 import UpcomingBills from "../../components/dashboard/UpcomingBills"
+import SalarySetupBanner from "../../components/dashboard/SalarySetupBanner"
 
 const Home = () => {
   const { token } = useAuth()
@@ -40,8 +41,23 @@ const Home = () => {
     }
   }
 
+  const processRecurring = async () => {
+    try {
+      await fetch(`${BASE_URL}/api/recurring/process`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${authToken}` },
+      })
+    } catch (err) {
+      console.error("Auto-process error:", err)
+    }
+  }
+
   useEffect(() => {
-    fetchDashboard(page)
+    const init = async () => {
+      await processRecurring()
+      fetchDashboard(page)
+    }
+    init()
   }, [page])
 
   if (!data || loading) {
@@ -55,6 +71,9 @@ const Home = () => {
   return (
     <div className="space-y-10 animate-in fade-in zoom-in duration-700">
       
+      {/* 💰 QUICK SALARY SETUP */}
+      <SalarySetupBanner />
+
       {/* 🔔 SMART NOTIFICATIONS */}
       <UpcomingBills />
 
