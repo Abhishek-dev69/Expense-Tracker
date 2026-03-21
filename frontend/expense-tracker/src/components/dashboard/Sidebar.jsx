@@ -54,7 +54,6 @@ const Sidebar = () => {
         </h1>
 
         <nav className="text-sm">
-          <NavGroup title="Core" />
           <NavLink to="/dashboard" end className={linkClass}>
             <LayoutDashboard size={18} /> Overview
           </NavLink>
@@ -62,7 +61,6 @@ const Sidebar = () => {
             <List size={18} /> Transactions
           </NavLink>
 
-          <NavGroup title="Intelligence" />
           <NavLink to="/dashboard/analytics" className={linkClass}>
             <BarChart3 size={18} /> Analytics
           </NavLink>
@@ -73,7 +71,6 @@ const Sidebar = () => {
             <FileText size={18} /> Reports
           </NavLink>
 
-          <NavGroup title="Wealth Planning" />
           <NavLink to="/dashboard/budget" className={linkClass}>
             <Target size={18} /> Budgeting
           </NavLink>
@@ -87,7 +84,6 @@ const Sidebar = () => {
             <Users size={18} /> Friends & Debts
           </NavLink>
 
-          <NavGroup title="Gamification" />
           <NavLink to="/dashboard/achievements" className={linkClass}>
             <Medal size={18} /> Achievements
           </NavLink>
