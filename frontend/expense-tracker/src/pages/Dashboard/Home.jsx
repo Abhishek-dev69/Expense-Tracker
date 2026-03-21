@@ -6,6 +6,7 @@ import StatsGrid from "../../components/dashboard/StatsGrid"
 import TransactionsTable from "../../components/dashboard/TransactionsTable"
 import UpcomingBills from "../../components/dashboard/UpcomingBills"
 import SalarySetupBanner from "../../components/dashboard/SalarySetupBanner"
+import BudgetHealthCard from "../../components/dashboard/BudgetHealthCard"
 
 const Home = () => {
   const { token } = useAuth()
@@ -73,6 +74,13 @@ const Home = () => {
       
       {/* 💰 QUICK SALARY SETUP */}
       <SalarySetupBanner />
+
+      {/* 💖 BUDGET HEALTH INDICATOR */}
+      <BudgetHealthCard 
+        totalExpense={data.totalExpense} 
+        budgetLimit={data.monthlyBudgetLimit}
+        avgDailyExpense={data.averageDailyExpense}
+      />
 
       {/* 🔔 SMART NOTIFICATIONS */}
       <UpcomingBills />

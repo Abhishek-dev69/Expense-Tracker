@@ -108,6 +108,35 @@ router.get("/transactions", protect, async (req, res) => {
 })
 
 
+// 📦 Batch Add (Import)
+router.post("/batch", protect, async (req, res) => {
+  try {
+    const { transactions } = req.body
+
+    if (!Array.isArray(transactions) || transactions.length === 0) {
+      return res.status(400).json({ message: "Invalid transactions data" })
+    }
+
+    // Process transactions to ensure user ID and proper amounts
+    const processedTransactions = transactions.map(tx => ({
+      ...tx,
+      user: req.user.id,
+      amount: tx.type === "expense" ? -Math.abs(tx.amount) : Math.abs(tx.amount),
+      date: tx.date || new Date()
+    }))
+
+    const docs = await Transaction.insertMany(processedTransactions)
+    res.status(201).json({ 
+      message: `${docs.length} transactions imported successfully`,
+      count: docs.length 
+    })
+
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+
 // ❌ Delete
 router.delete("/transactions/:id", protect, async (req, res) => {
 

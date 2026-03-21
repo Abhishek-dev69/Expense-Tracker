@@ -38,6 +38,17 @@ const transactionSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    splitDetails: [
+      {
+        name: { type: String, required: true },
+        amount: { type: Number, required: true },
+        status: { 
+          type: String, 
+          enum: ["pending", "settled"], 
+          default: "pending" 
+        }
+      }
+    ],
   },
   { timestamps: true }
 )

@@ -12,6 +12,7 @@ import reportsRoutes from "./routes/reportsRoutes.js"
 import recurringRoutes from "./routes/recurringRoutes.js"
 import goalRoutes from "./routes/goalRoutes.js"
 import gamificationRoutes from "./routes/gamificationRoutes.js"
+import splitRoutes from "./routes/splitRoutes.js"
 
 dotenv.config()
 
@@ -49,6 +50,7 @@ app.use("/api/reports", reportsRoutes)
 app.use("/api/recurring", recurringRoutes)
 app.use("/api/goals", goalRoutes)
 app.use("/api/gamification", gamificationRoutes)
+app.use("/api/splits", splitRoutes)
 
 /* =====================
    Mongo + Server

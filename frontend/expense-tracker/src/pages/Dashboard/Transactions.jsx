@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { Search, Trash2, Download } from "lucide-react"
+import { Search, Trash2, Download, Upload, Users } from "lucide-react"
+import ImportModal from "../../components/dashboard/ImportModal"
+import SplitModal from "../../components/dashboard/SplitModal"
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState([])
@@ -8,6 +10,8 @@ const Transactions = () => {
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false)
+  const [selectedSplitTx, setSelectedSplitTx] = useState(null)
 
   const fetchTransactions = async () => {
     try {
@@ -90,6 +94,15 @@ const Transactions = () => {
         </h2>
 
         <div className="flex items-center gap-4">
+          {/* Import Button */}
+          <button
+            onClick={() => setIsImportModalOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 hover:bg-indigo-500/20 transition-all font-medium text-sm"
+          >
+            <Upload size={16} />
+            Import CSV
+          </button>
+
           {/* Export Button */}
           <button
             onClick={handleExportCSV}
@@ -185,7 +198,16 @@ const Transactions = () => {
                   ₹ {Math.abs(tx.amount).toLocaleString()}
                 </div>
 
-                <div className="text-right">
+                <div className="text-right flex items-center justify-end gap-1">
+                  {tx.type === "expense" && (
+                    <button
+                      onClick={() => setSelectedSplitTx(tx)}
+                      className={`p-2 rounded-lg transition-all active:scale-95 ${tx.splitDetails?.length > 0 ? 'bg-indigo-500/20 text-indigo-400' : 'hover:bg-indigo-500/10 text-gray-500 hover:text-indigo-400'}`}
+                      title="Split Expense"
+                    >
+                      <Users size={16} />
+                    </button>
+                  )}
                   <button
                     onClick={() => deleteTransaction(tx._id)}
                     className="p-2 rounded-lg hover:bg-rose-500/10 text-gray-500 hover:text-rose-400 transition-all active:scale-95"
@@ -221,6 +243,17 @@ const Transactions = () => {
           </div>
         </div>
       )}
+      <ImportModal 
+        isOpen={isImportModalOpen} 
+        onClose={() => setIsImportModalOpen(false)} 
+        onRefresh={fetchTransactions}
+      />
+      <SplitModal 
+        isOpen={!!selectedSplitTx} 
+        onClose={() => setSelectedSplitTx(null)} 
+        transaction={selectedSplitTx}
+        onRefresh={fetchTransactions}
+      />
     </div>
   )
 }

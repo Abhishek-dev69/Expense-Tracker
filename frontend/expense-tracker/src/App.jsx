@@ -14,6 +14,7 @@ import Reports from "./pages/Dashboard/Reports"
 import Recurring from "./pages/Dashboard/Recurring"
 import Goals from "./pages/Dashboard/Goals"
 import Achievements from "./pages/Dashboard/Achievements"
+import Debts from "./pages/Dashboard/Debts"
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="recurring" element={<Recurring />} />
         <Route path="goals" element={<Goals />} />
         <Route path="achievements" element={<Achievements />} />
+        <Route path="debts" element={<Debts />} />
       </Route>
 
       {/* Fallback */}

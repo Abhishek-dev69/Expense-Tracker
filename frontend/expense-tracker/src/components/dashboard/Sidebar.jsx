@@ -12,7 +12,8 @@ import {
   Flag,
   Medal,
   LogOut,
-  User as UserIcon
+  User as UserIcon,
+  Users
 } from "lucide-react"
 
 const NavGroup = ({ title }) => (
@@ -81,6 +82,9 @@ const Sidebar = () => {
           </NavLink>
           <NavLink to="/dashboard/recurring" className={linkClass}>
             <RotateCcw size={18} /> Subscriptions
+          </NavLink>
+          <NavLink to="/dashboard/debts" className={linkClass}>
+            <Users size={18} /> Friends & Debts
           </NavLink>
 
           <NavGroup title="Gamification" />

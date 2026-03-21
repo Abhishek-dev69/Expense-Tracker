@@ -3,6 +3,8 @@ import mongoose from "mongoose"
 import { protect } from "../middleware/authMiddleware.js"
 import Transaction from "../models/Transaction.js"
 
+import Budget from "../models/Budget.js"
+
 const router = express.Router()
 
 router.get("/", protect, async (req, res) => {
@@ -12,6 +14,14 @@ router.get("/", protect, async (req, res) => {
     const skip = (page - 1) * limit
 
     const userId = new mongoose.Types.ObjectId(req.user.id)
+
+    // 🗓️ Current Month Info
+    const today = new Date()
+    const currentMonthString = today.toISOString().slice(0, 7) // "YYYY-MM"
+
+    // 💰 Fetch Budget for current month
+    const budgetDoc = await Budget.findOne({ user: userId, month: currentMonthString })
+    const monthlyBudgetLimit = budgetDoc ? budgetDoc.monthlyLimit : 0
 
     // 🔢 Total count for pagination
     const totalCount = await Transaction.countDocuments({
@@ -62,15 +72,6 @@ router.get("/", protect, async (req, res) => {
        📈 Forecast Engine
     ============================== */
 
-    const today = new Date()
-    const daysPassed = today.getDate()
-
-    const daysInMonth = new Date(
-      today.getFullYear(),
-      today.getMonth() + 1,
-      0
-    ).getDate()
-
     const avgDailyExpense =
       daysPassed > 0 ? totalExpense / daysPassed : 0
 
@@ -83,6 +84,7 @@ router.get("/", protect, async (req, res) => {
       totalBalance,
       predictedBalance,
       averageDailyExpense: avgDailyExpense,
+      monthlyBudgetLimit,
       transactions,
       allTransactions,
       totalPages: Math.ceil(totalCount / limit),
