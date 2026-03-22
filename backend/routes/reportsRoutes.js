@@ -71,7 +71,7 @@ router.get("/monthly", protect, async (req, res) => {
       transactions: transactions.map(t => ({
         id: t._id,
         date: t.date,
-        description: t.description,
+        title: t.title,
         amount: t.amount,
         type: t.type,
         category: t.category

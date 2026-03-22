@@ -53,21 +53,46 @@ const Reports = () => {
   const exportToCSV = () => {
     if (!report || !report.transactions.length) return
 
-    const headers = ["Date", "Description", "Category", "Type", "Amount"]
+    // 1. Build Metadata Header
+    const metadata = [
+      ["FINANCIAL REPORT SUMMARY"],
+      ["Account Owner", useAuth().user?.name || "N/A"],
+      ["Email", useAuth().user?.email || "N/A"],
+      ["Report Period", `${new Date(selectedYear, selectedMonth - 1).toLocaleString('default', { month: 'long' })} ${selectedYear}`],
+      ["Generated On", new Date().toLocaleString()],
+      [""],
+      ["EXECUTIVE SUMMARY"],
+      ["Total Income", `₹${report.income.toLocaleString()}`],
+      ["Total Expenses", `₹${report.expense.toLocaleString()}`],
+      ["Net Balance", `₹${report.balance.toLocaleString()}`],
+      ["Transactions Count", report.transactions.length],
+      [""],
+      ["DETAILED TRANSACTIONS"]
+    ]
+
+    // 2. Build Transaction Table
+    const headers = ["Date", "Title", "Category", "Type", "Amount", "Splits"]
     const rows = report.transactions.map(t => [
       new Date(t.date).toLocaleDateString(),
-      `"${t.description.replace(/"/g, '""')}"`,
+      `"${(t.title || "").replace(/"/g, '""')}"`,
       `"${t.category}"`,
-      t.type,
-      t.amount
-    ].join(","))
+      t.type.toUpperCase(),
+      t.amount,
+      `"${(t.splitDetails || []).map(s => `${s.name}: ₹${s.amount}`).join(" | ")}"`
+    ])
 
-    const csvContent = [headers.join(","), ...rows].join("\n")
+    // 3. Combine and Export
+    const csvContent = [
+      ...metadata.map(m => m.join(",")),
+      headers.join(","), 
+      ...rows.map(r => r.join(","))
+    ].join("\n")
+
     const blob = new Blob(["\ufeff" + csvContent], { type: "text/csv;charset=utf-8;" })
     const link = document.createElement("a")
     const url = URL.createObjectURL(blob)
     link.href = url
-    link.download = `Expense_Report_${selectedYear}_${selectedMonth}.csv`
+    link.download = `FinTrack_Report_${selectedYear}_${selectedMonth}.csv`
     link.click()
     URL.revokeObjectURL(url)
   }
@@ -106,12 +131,58 @@ const Reports = () => {
       <style>{`
         @media print {
           .no-print { display: none !important; }
-          .reports-page { padding: 0 !important; margin: 0 !important; background: white !important; color: black !important; }
-          .reports-page h1, .reports-page h3, .reports-page p, .reports-page span, .reports-page td { color: black !important; }
-          .reports-page .bg-white\\/5 { background: transparent !important; border: 1px solid #eee !important; box-shadow: none !important; }
-          .reports-page .rounded-\\[2rem\\], .reports-page .rounded-3xl { border-radius: 8px !important; }
+          .reports-page { padding: 40px !important; margin: 0 !important; background: white !important; color: black !important; font-family: 'Inter', sans-serif !important; }
+          .reports-page h1, .reports-page h2, .reports-page h3, .reports-page p, .reports-page span, .reports-page td, .reports-page th { color: black !important; }
+          
+          .reports-page .bg-white\\/5, .reports-page .bg-indigo-600 { 
+            background: white !important; 
+            border: 2px solid #000 !important; 
+            box-shadow: none !important; 
+            margin-bottom: 25px !important;
+            padding: 30px !important;
+          }
+          
+          .reports-page .rounded-\\[2rem\\], .reports-page .rounded-\\[2.5rem\\], .reports-page .rounded-3xl, .reports-page .rounded-2xl { 
+            border-radius: 0 !important; 
+          }
+          
+          .reports-page .grid { display: block !important; }
+          .reports-page .lg\\:col-span-1, .reports-page .lg\\:col-span-2 { width: 100% !important; margin-bottom: 30px !important; }
+          
+          table { width: 100% !important; border-collapse: collapse !important; border: 2px solid #000 !important; }
+          th { background: #f3f4f6 !important; border: 1px solid #000 !important; padding: 12px !important; text-align: left !important; font-weight: 800 !important; text-transform: uppercase !important; font-size: 10px !important; }
+          td { border: 1px solid #ddd !important; padding: 12px !important; text-align: left !important; font-size: 11px !important; }
+          
+          .print-header { 
+            display: block !important; 
+            margin-bottom: 50px !important; 
+            border-bottom: 4px solid #000 !important; 
+            padding-bottom: 25px !important; 
+          }
+          
+          .efficiency-meter { border: 1px solid #000 !important; padding: 10px !important; margin-top: 10px !important; }
+          .category-bar { border: 1px solid #000 !important; height: 10px !important; background: #eee !important; margin-top: 5px !important; }
+          .category-fill { background: #333 !important; height: 100% !important; }
+        }
+        @media screen {
+          .print-header { display: none; }
         }
       `}</style>
+      
+      {/* Print Header */}
+      <div className="print-header hidden">
+        <div className="flex justify-between items-end">
+          <div>
+            <h1 className="text-4xl font-black text-indigo-600 mb-2">FinTrack AI</h1>
+            <p className="text-gray-600 font-bold uppercase tracking-widest text-sm">Monthly Financial Audit Statement</p>
+          </div>
+          <div className="text-right">
+            <p className="text-lg font-bold text-gray-900">{useAuth().user?.name || 'Financial Member'}</p>
+            <p className="text-sm text-gray-500">{useAuth().user?.email}</p>
+            <p className="text-xs text-gray-400 mt-2 italic">Report Generated: {new Date().toLocaleDateString()}</p>
+          </div>
+        </div>
+      </div>
       
       {/* Header & Filters */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 no-print">
@@ -148,6 +219,26 @@ const Reports = () => {
               <option key={year} value={year} className="bg-[#0b1220]">{year}</option>
             ))}
           </select>
+        </div>
+      </div>
+
+      {/* Executive Summary Card */}
+      <div className="p-10 rounded-[3rem] bg-indigo-600 overflow-hidden shadow-2xl shadow-indigo-500/20 relative group">
+        <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700" />
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="space-y-4 max-w-2xl">
+            <h2 className="text-3xl font-black text-white leading-tight">Executive Summary: <br/> {new Date(selectedYear, selectedMonth - 1).toLocaleString('default', { month: 'long' })} Audit</h2>
+            <p className="text-indigo-100 font-medium opacity-90 leading-relaxed text-lg">
+              During this period, you processed <strong>{report?.transactions.length}</strong> transactions with a net balance of <strong className={report?.balance >= 0 ? 'text-emerald-300' : 'text-rose-300'}>₹{report?.balance.toLocaleString()}</strong>. 
+              {report?.balance >= 0 
+                ? " You maintained a positive capital flow, which is a strong indicator of financial health. Consider moving unallocated balance to your Savings Goals."
+                : " Your expenses exceeded your income this month. We recommend reviewing your top categories below to identify potential areas for optimization."}
+            </p>
+          </div>
+          <div className="flex flex-col items-center md:items-end justify-center min-w-[200px]">
+             <p className="text-[10px] text-indigo-200 uppercase font-black tracking-[0.3em] mb-2">Efficiency Rating</p>
+             <div className="text-6xl font-black text-white">{report?.income > 0 ? Math.round((report.balance / report.income) * 100) : 0}%</div>
+          </div>
         </div>
       </div>
 
@@ -228,22 +319,37 @@ const Reports = () => {
 
             {report?.breakdown.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {report.breakdown.map((item, idx) => (
-                  <div key={idx} className="group p-4 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-2xl bg-[#111827] border border-white/10 flex items-center justify-center text-indigo-400 font-bold">
-                        {item.category[0]}
+                {report.breakdown.map((item, idx) => {
+                  const percentage = Math.round((item.amount / report.expense) * 100);
+                  return (
+                    <div key={idx} className="group p-4 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 rounded-2xl bg-[#111827] border border-white/10 flex items-center justify-center text-indigo-400 font-bold no-print">
+                            {item.category[0]}
+                          </div>
+                          <div>
+                            <p className="font-bold text-white">{item.category}</p>
+                            <p className="text-xs text-gray-500">{percentage}% of total</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-bold text-white tabular-nums">₹{item.amount.toLocaleString()}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-bold text-white">{item.category}</p>
-                        <p className="text-xs text-gray-500">{((item.amount / report.expense) * 100).toFixed(0)}%</p>
+                      <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden no-print">
+                        <div 
+                          className="h-full bg-indigo-500 transition-all duration-1000" 
+                          style={{ width: `${percentage}%` }}
+                        />
+                      </div>
+                      {/* Print-only category bar */}
+                      <div className="hidden print:block category-bar">
+                         <div className="category-fill" style={{ width: `${percentage}%` }} />
                       </div>
                     </div>
-                    <div className="text-right">
-                      <p className="font-bold text-white tabular-nums">₹{item.amount.toLocaleString()}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center text-center p-12">
@@ -268,6 +374,7 @@ const Reports = () => {
                 <thead>
                   <tr className="border-b border-white/5">
                     <th className="pb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Date</th>
+                    <th className="pb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Title</th>
                     <th className="pb-4 text-xs font-bold text-gray-500 uppercase tracking-widest text-center">Type</th>
                     <th className="pb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Category</th>
                     <th className="pb-4 text-xs font-bold text-gray-500 uppercase tracking-widest text-right">Amount</th>
@@ -278,6 +385,18 @@ const Reports = () => {
                     <tr key={t.id} className="group hover:bg-white/[0.02] transition-colors">
                       <td className="py-4 text-sm text-gray-300 font-medium">
                         {new Date(t.date).toLocaleDateString(undefined, { day: '2-digit', month: 'short' })}
+                      </td>
+                      <td className="py-4 text-sm font-medium">
+                        <p className="text-white font-bold">{t.title}</p>
+                        {t.splitDetails?.length > 0 && (
+                          <div className="mt-1 flex flex-wrap gap-1">
+                            {t.splitDetails.map((split, sIdx) => (
+                              <span key={sIdx} className="text-[10px] px-1.5 py-0.5 rounded-md bg-white/5 text-gray-500 border border-white/5">
+                                {split.name}: ₹{split.amount} ({split.status})
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </td>
                       <td className="py-4 text-center">
                         <span className={`px-2 py-1 rounded-lg text-[10px] uppercase font-black ${t.type === 'income' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}`}>
@@ -291,6 +410,14 @@ const Reports = () => {
                     </tr>
                   ))}
                 </tbody>
+                <tfoot className="border-t-2 border-white/10">
+                  <tr className="bg-white/5">
+                    <td colSpan={4} className="py-6 px-4 text-xs font-black text-gray-400 uppercase tracking-widest text-right">Net Fiscal Flow</td>
+                    <td className={`py-6 px-4 text-lg font-black text-right tabular-nums ${report?.balance >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                      ₹{report?.balance.toLocaleString()}
+                    </td>
+                  </tr>
+                </tfoot>
               </table>
             </div>
           </div>
