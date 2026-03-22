@@ -131,57 +131,56 @@ const Reports = () => {
     <div className="max-w-7xl mx-auto space-y-10 animate-in fade-in zoom-in duration-700 reports-page">
       <style>{`
         @media print {
-          .no-print { display: none !important; }
-          .reports-page { padding: 40px !important; margin: 0 !important; background: white !important; color: black !important; font-family: 'Inter', sans-serif !important; }
-          .reports-page h1, .reports-page h2, .reports-page h3, .reports-page p, .reports-page span, .reports-page td, .reports-page th { color: black !important; }
+          /* 1. Hide EVERYTHING under the body */
+          body > * { display: none !important; }
           
-          .reports-page .bg-white\\/5, .reports-page .bg-indigo-600 { 
-            background: white !important; 
-            border: 2px solid #000 !important; 
-            box-shadow: none !important; 
-            margin-bottom: 25px !important;
-            padding: 30px !important;
-          }
-          
-          .reports-page .rounded-\\[2rem\\], .reports-page .rounded-\\[2.5rem\\], .reports-page .rounded-3xl, .reports-page .rounded-2xl { 
-            border-radius: 0 !important; 
-          }
-          
-          .reports-page .grid { display: block !important; }
-          .reports-page .lg\\:col-span-1, .reports-page .lg\\:col-span-2 { width: 100% !important; margin-bottom: 30px !important; }
-          
-          table { width: 100% !important; border-collapse: collapse !important; border: 2px solid #000 !important; }
-          th { background: #f3f4f6 !important; border: 1px solid #000 !important; padding: 12px !important; text-align: left !important; font-weight: 800 !important; text-transform: uppercase !important; font-size: 10px !important; }
-          td { border: 1px solid #ddd !important; padding: 12px !important; text-align: left !important; font-size: 11px !important; }
-          
-          .print-header { 
+          /* 2. Show specifically the Reports page and its children */
+          .reports-page, .reports-page * { 
             display: block !important; 
-            margin-bottom: 50px !important; 
-            border-bottom: 5px solid #000 !important; 
-            padding-bottom: 30px !important; 
+            visibility: visible !important; 
+            opacity: 1 !important;
+            color: black !important; 
+            background: white !important;
+            overflow: visible !important;
+            position: static !important;
+            box-shadow: none !important;
+            border-color: #ddd !important;
+            float: none !important;
           }
           
-          .print-footer {
+          /* 3. Force the Reports page to be the only thing on the document root */
+          .reports-page { 
             display: block !important;
-            position: fixed !important;
-            bottom: 0 !important;
-            width: 100% !important;
-            border-top: 1px solid #ddd !important;
-            padding-top: 15px !important;
-            font-size: 8px !important;
-            color: #666 !important;
-            text-align: center !important;
-            text-transform: uppercase !important;
-            letter-spacing: 2px !important;
+            position: fixed !important; 
+            left: 0 !important; 
+            top: 0 !important; 
+            width: 100% !important; 
+            padding: 20px !important;
+            margin: 0 !important;
+            z-index: 9999 !important;
           }
+
+          .no-print { display: none !important; visibility: hidden !important; }
           
-          .efficiency-meter { border: 1px solid #000 !important; padding: 10px !important; margin-top: 10px !important; }
-          .category-bar { border: 1px solid #000 !important; height: 10px !important; background: #eee !important; margin-top: 5px !important; }
-          .category-fill { background: #333 !important; height: 100% !important; }
-          .print-scroll-reset { overflow: visible !important; height: auto !important; display: block !important; }
+          table { 
+            display: table !important; 
+            width: 100% !important; 
+            border-collapse: collapse !important; 
+            margin-top: 30px !important; 
+          }
+          thead { display: table-header-group !important; }
+          tbody { display: table-row-group !important; }
+          tr { display: table-row !important; page-break-inside: avoid !important; }
+          th, td { display: table-cell !important; padding: 12px !important; border-bottom: 1px solid #ddd !important; }
+          
+          .print-header { display: block !important; margin-bottom: 40px !important; border-bottom: 3px solid black !important; }
+          .print-footer { display: block !important; position: fixed; bottom: 0; width: 100%; border-top: 1px solid #ddd; padding: 10px; font-size: 8px; }
+          
+          .category-bar { border: 1px solid #000 !important; width: 100% !important; height: 10px !important; background: #eee !important; margin-top: 5px !important; }
+          .category-fill { background: #000 !important; height: 100% !important; }
         }
         @media screen {
-          .print-header { display: none; }
+          .print-header, .print-footer { display: none; }
         }
       `}</style>
       
