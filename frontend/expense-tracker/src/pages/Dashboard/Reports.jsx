@@ -131,53 +131,53 @@ const Reports = () => {
     <div className="max-w-7xl mx-auto space-y-10 animate-in fade-in zoom-in duration-700 reports-page">
       <style>{`
         @media print {
-          /* 1. Hide EVERYTHING under the body */
-          body > * { display: none !important; }
+          .no-print { display: none !important; }
           
-          /* 2. Show specifically the Reports page and its children */
-          .reports-page, .reports-page * { 
-            display: block !important; 
-            visibility: visible !important; 
-            opacity: 1 !important;
-            color: black !important; 
-            background: white !important;
-            overflow: visible !important;
-            position: static !important;
-            box-shadow: none !important;
-            border-color: #ddd !important;
-            float: none !important;
-          }
-          
-          /* 3. Force the Reports page to be the only thing on the document root */
+          /* Reset the page container for documents */
           .reports-page { 
+            padding: 0 !important; 
+            margin: 0 !important; 
+            background: white !important; 
+            color: black !important;
             display: block !important;
-            position: fixed !important; 
-            left: 0 !important; 
-            top: 0 !important; 
-            width: 100% !important; 
-            padding: 20px !important;
-            margin: 0 !important;
-            z-index: 9999 !important;
+            overflow: visible !important;
+            height: auto !important;
           }
 
-          .no-print { display: none !important; visibility: hidden !important; }
-          
+          /* Ensure ALL children are black text on white background */
+          .reports-page * { 
+            color: black !important; 
+            background: transparent !important; 
+            box-shadow: none !important;
+            border-color: #eee !important;
+          }
+
+          /* Force tables to expand naturally */
+          .print-scroll-reset { 
+            overflow: visible !important; 
+            height: auto !important; 
+            display: block !important; 
+            padding: 0 !important;
+            border: none !important;
+          }
+
           table { 
-            display: table !important; 
             width: 100% !important; 
             border-collapse: collapse !important; 
-            margin-top: 30px !important; 
+            margin-top: 20px !important;
+            page-break-inside: auto !important;
           }
+          tr { page-break-inside: avoid !important; page-break-after: auto !important; }
           thead { display: table-header-group !important; }
-          tbody { display: table-row-group !important; }
-          tr { display: table-row !important; page-break-inside: avoid !important; }
-          th, td { display: table-cell !important; padding: 12px !important; border-bottom: 1px solid #ddd !important; }
           
-          .print-header { display: block !important; margin-bottom: 40px !important; border-bottom: 3px solid black !important; }
-          .print-footer { display: block !important; position: fixed; bottom: 0; width: 100%; border-top: 1px solid #ddd; padding: 10px; font-size: 8px; }
+          th { border-bottom: 2px solid #000 !important; padding: 12px !important; text-align: left !important; }
+          td { border-bottom: 1px solid #eee !important; padding: 12px !important; }
           
-          .category-bar { border: 1px solid #000 !important; width: 100% !important; height: 10px !important; background: #eee !important; margin-top: 5px !important; }
-          .category-fill { background: #000 !important; height: 100% !important; }
+          .print-header { display: block !important; margin-bottom: 40px !important; border-bottom: 4px solid #000 !important; padding-bottom: 20px !important; }
+          .print-footer { display: block !important; position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 8px; border-top: 1px solid #eee; padding: 10px; }
+          
+          .efficiency-meter, .category-bar { border: 1px solid #000 !important; }
+          .category-fill { background: #000 !important; }
         }
         @media screen {
           .print-header, .print-footer { display: none; }

@@ -100,11 +100,33 @@ const DashboardLayout = () => {
     <div className="relative flex h-screen text-white bg-[#0b1220] overflow-hidden dashboard-root">
       <style>{`
         @media print {
+          /* Reset root layout for printing */
           .dashboard-root { height: auto !important; overflow: visible !important; display: block !important; background: white !important; }
-          .sidebar-container, .topbar-container { display: none !important; }
-          .main-content { padding: 0 !important; margin: 0 !important; height: auto !important; overflow: visible !important; display: block !important; }
-          .main-scroller { height: auto !important; overflow: visible !important; padding: 0 !important; display: block !important; }
-          body, html { height: auto !important; overflow: visible !important; background: white !important; }
+          .sidebar-container, .topbar-container, .no-print { display: none !important; }
+          
+          /* Remove scroller containers and allow natural scroll */
+          .main-content { 
+            padding: 0 !important; 
+            margin: 0 !important; 
+            height: auto !important; 
+            overflow: visible !important; 
+            display: block !important; 
+            background: white !important;
+          }
+          .main-scroller { 
+            overflow: visible !important; 
+            height: auto !important; 
+            padding: 0 !important; 
+            display: block !important; 
+          }
+          
+          /* Global body reset */
+          body, html { 
+            height: auto !important; 
+            overflow: visible !important; 
+            background: white !important; 
+            color: black !important;
+          }
         }
       `}</style>
 
