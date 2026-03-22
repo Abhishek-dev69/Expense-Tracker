@@ -144,16 +144,20 @@ const Reports = () => {
             height: auto !important;
           }
 
-          /* Ensure ALL children are black text on white background */
+          /* Ensure ALL children are black text on white background and visible */
           .reports-page * { 
             color: black !important; 
             background: transparent !important; 
             box-shadow: none !important;
-            border-color: #eee !important;
+            border-color: #ddd !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+            animation: none !important;
           }
 
           /* Force tables to expand naturally */
-          .print-scroll-reset { 
+          .print-scroll-reset, .overflow-x-auto { 
             overflow: visible !important; 
             height: auto !important; 
             display: block !important; 
