@@ -47,7 +47,10 @@ const Reports = () => {
   }, [fetchReport])
 
   const handlePrint = () => {
-    window.print()
+    // Small delay to ensure all React renders and animations are stable
+    setTimeout(() => {
+      window.print()
+    }, 500)
   }
 
   const exportToCSV = () => {
@@ -156,13 +159,15 @@ const Reports = () => {
             animation: none !important;
           }
 
-          /* Force tables to expand naturally */
-          .print-scroll-reset, .overflow-x-auto { 
+          /* Force containers to expand naturally */
+          .print-scroll-reset, .overflow-x-auto, .max-w-7xl, .space-y-10 { 
             overflow: visible !important; 
             height: auto !important; 
             display: block !important; 
             padding: 0 !important;
             border: none !important;
+            max-width: none !important;
+            margin: 0 !important;
           }
 
           table { 
@@ -171,8 +176,12 @@ const Reports = () => {
             margin-top: 20px !important;
             page-break-inside: auto !important;
           }
-          tr { page-break-inside: avoid !important; page-break-after: auto !important; }
+          tr { 
+            page-break-inside: avoid !important; 
+            page-break-after: auto !important; 
+          }
           thead { display: table-header-group !important; }
+          tfoot { display: table-footer-group !important; }
           
           th { border-bottom: 2px solid #000 !important; padding: 12px !important; text-align: left !important; }
           td { border-bottom: 1px solid #eee !important; padding: 12px !important; }
