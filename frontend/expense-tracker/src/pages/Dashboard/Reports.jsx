@@ -138,7 +138,7 @@ const Reports = () => {
           
           /* Reset the page container for documents */
           .reports-page { 
-            padding: 0 !important; 
+            padding: 20px !important; 
             margin: 0 !important; 
             background: white !important; 
             color: black !important;
@@ -147,12 +147,18 @@ const Reports = () => {
             height: auto !important;
           }
 
-          /* Ensure ALL children are black text on white background and visible */
+          /* Strip all glassmorphism and fancy backgrounds */
+          .reports-page div, .reports-page section, .reports-page main {
+            background: white !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-color: #ddd !important;
+            box-shadow: none !important;
+          }
+
+          /* Ensure ALL text is black and visible */
           .reports-page * { 
             color: black !important; 
-            background: transparent !important; 
-            box-shadow: none !important;
-            border-color: #ddd !important;
             opacity: 1 !important;
             visibility: visible !important;
             transform: none !important;
@@ -420,7 +426,7 @@ const Reports = () => {
                         {new Date(t.date).toLocaleDateString(undefined, { day: '2-digit', month: 'short' })}
                       </td>
                       <td className="py-4 text-sm font-medium">
-                        <p className="text-white font-bold">{t.title}</p>
+                        <p className="text-white font-bold">{t.title || t.description || 'Untitled Transaction'}</p>
                         {t.splitDetails?.length > 0 && (
                           <div className="mt-1 flex flex-wrap gap-1">
                             {t.splitDetails.map((split, sIdx) => (

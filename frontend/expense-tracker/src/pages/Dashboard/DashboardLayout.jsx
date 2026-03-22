@@ -120,6 +120,14 @@ const DashboardLayout = () => {
             display: block !important; 
           }
           
+          /* Neutralize grid layouts for print */
+          .grid, [class*="grid-cols-"], [class*="lg:col-span-"] {
+            display: block !important;
+            width: 100% !important;
+            grid-template-columns: none !important;
+            gap: 20px !important;
+          }
+
           /* Global body reset */
           body, html { 
             height: auto !important; 
