@@ -97,24 +97,36 @@ const DashboardLayout = () => {
   }
 
   return (
-    <div className="relative flex h-screen text-white bg-[#0b1220] overflow-hidden">
+    <div className="relative flex h-screen text-white bg-[#0b1220] overflow-hidden dashboard-root">
+      <style>{`
+        @media print {
+          .dashboard-root { height: auto !important; overflow: visible !important; display: block !important; background: white !important; }
+          .sidebar-container, .topbar-container { display: none !important; }
+          .main-content { padding: 0 !important; margin: 0 !important; height: auto !important; overflow: visible !important; display: block !important; }
+          body, html { height: auto !important; overflow: visible !important; background: white !important; }
+        }
+      `}</style>
 
       {/* 🔥 Background Glow Effects */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px]" />
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px] no-print" />
+      <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px] no-print" />
 
       {/* Main Layout */}
       <div className="relative flex w-full h-full">
 
-        <Sidebar />
+        <div className="sidebar-container no-print">
+          <Sidebar />
+        </div>
 
-        <div className="flex-1 flex flex-col h-full overflow-hidden">
+        <div className="flex-1 flex flex-col h-full overflow-hidden main-content">
 
           {isDashboardHome && (
-            <Topbar
-              onAddIncome={() => setShowIncome(true)}
-              onAddExpense={() => setShowExpense(true)}
-            />
+            <div className="topbar-container no-print">
+              <Topbar
+                onAddIncome={() => setShowIncome(true)}
+                onAddExpense={() => setShowExpense(true)}
+              />
+            </div>
           )}
 
           <main className={`flex-1 px-10 overflow-y-auto ${isDashboardHome ? "py-10" : "py-12"}`}>
