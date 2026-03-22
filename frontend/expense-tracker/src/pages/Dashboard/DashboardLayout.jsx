@@ -103,6 +103,7 @@ const DashboardLayout = () => {
           .dashboard-root { height: auto !important; overflow: visible !important; display: block !important; background: white !important; }
           .sidebar-container, .topbar-container { display: none !important; }
           .main-content { padding: 0 !important; margin: 0 !important; height: auto !important; overflow: visible !important; display: block !important; }
+          .main-scroller { height: auto !important; overflow: visible !important; padding: 0 !important; display: block !important; }
           body, html { height: auto !important; overflow: visible !important; background: white !important; }
         }
       `}</style>
@@ -129,7 +130,7 @@ const DashboardLayout = () => {
             </div>
           )}
 
-          <main className={`flex-1 px-10 overflow-y-auto ${isDashboardHome ? "py-10" : "py-12"}`}>
+          <main className={`flex-1 px-10 overflow-y-auto main-scroller ${isDashboardHome ? "py-10" : "py-12"}`}>
             <Outlet />
           </main>
 

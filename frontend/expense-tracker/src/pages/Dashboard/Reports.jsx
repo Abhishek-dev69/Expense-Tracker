@@ -178,6 +178,7 @@ const Reports = () => {
           .efficiency-meter { border: 1px solid #000 !important; padding: 10px !important; margin-top: 10px !important; }
           .category-bar { border: 1px solid #000 !important; height: 10px !important; background: #eee !important; margin-top: 5px !important; }
           .category-fill { background: #333 !important; height: 100% !important; }
+          .print-scroll-reset { overflow: visible !important; height: auto !important; display: block !important; }
         }
         @media screen {
           .print-header { display: none; }
@@ -380,7 +381,7 @@ const Reports = () => {
           </div>
 
           {/* Transaction List */}
-          <div className="p-8 rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden">
+          <div className="p-8 rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden print-scroll-reset">
             <h3 className="text-lg font-bold text-white mb-6 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <History size={18} className="text-indigo-400" />
