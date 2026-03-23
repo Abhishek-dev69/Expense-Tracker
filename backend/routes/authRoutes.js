@@ -7,13 +7,15 @@ import { protect } from '../middleware/authMiddleware.js'
 const router = express.Router()
 
 router.post('/signup', async (req, res) => {
+  if (req.body.email) req.body.email = req.body.email.toLowerCase()
   const user = await User.create(req.body)
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
   res.json({ token })
 })
 
 router.post('/login', async (req, res) => {
-  const user = await User.findOne({ email: req.body.email })
+  const email = req.body.email?.toLowerCase()
+  const user = await User.findOne({ email })
   if (!user || !(await bcrypt.compare(req.body.password, user.password)))
     return res.status(401).json({ message: 'Invalid credentials' })
 

@@ -30,9 +30,9 @@ router.get("/summary", protect, async (req, res) => {
       })
     })
 
-    // Fetch incoming social requests (Who I owe)
+    // Fetch incoming social requests (Who I owe) - Normalize email
     const socialRequests = await SplitRequest.find({
-      toEmail: req.user.email,
+      toEmail: req.user.email.toLowerCase(),
       status: { $in: ["pending", "accepted"] }
     }).populate("fromUser", "name email").lean()
 
@@ -60,7 +60,7 @@ router.post("/send-request", protect, async (req, res) => {
 
     const splitRequest = await SplitRequest.create({
       fromUser: req.user.id,
-      toEmail,
+      toEmail: toEmail.toLowerCase(),
       amount,
       transactionTitle,
     })
@@ -76,10 +76,10 @@ router.patch("/respond-request/:id", protect, async (req, res) => {
   try {
     const { status } = req.body // 'accepted' or 'rejected'
     
-    // Check if request was sent to THIS user's email
+    // Check if request was sent to THIS user's email - Normalize
     const request = await SplitRequest.findOne({ 
       _id: req.params.id, 
-      toEmail: req.user.email 
+      toEmail: req.user.email.toLowerCase()
     })
 
     if (!request) return res.status(404).json({ message: "Request not found" })
