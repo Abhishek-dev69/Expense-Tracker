@@ -78,10 +78,10 @@ const Reports = () => {
     const headers = ["Date", "Title", "Category", "Type", "Amount", "Splits"]
     const rows = report.transactions.map(t => [
       new Date(t.date).toLocaleDateString(),
-      `"${t.title}"`,
-      t.category,
-      t.type.toUpperCase(),
-      t.amount,
+      `"${t.title || t.description || t.name || t.text || t.label || "Untitled"}"`,
+      t.category || "General",
+      (t.type || "expense").toUpperCase(),
+      t.amount || 0,
       `"${(t.splitDetails || []).map(s => `${s.name}: ₹${s.amount} (${s.status})`).join(" | ")}"`
     ])
 
@@ -421,7 +421,7 @@ const Reports = () => {
                 </thead>
                 <tbody className="divide-y divide-white/[0.02]">
                   {report?.transactions.map((t) => (
-                    <tr key={t.id} className="group hover:bg-white/[0.02] transition-colors">
+                    <tr key={t._id || t.id} className="group hover:bg-white/[0.02] transition-colors">
                       <td className="py-4 text-sm text-gray-300 font-medium">
                         {new Date(t.date).toLocaleDateString(undefined, { day: '2-digit', month: 'short' })}
                       </td>

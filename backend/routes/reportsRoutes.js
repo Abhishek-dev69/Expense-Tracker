@@ -68,12 +68,7 @@ router.get("/monthly", protect, async (req, res) => {
       ...currentMetrics,
       previousMonth: prevMetrics,
       breakdown: breakdownArray,
-      transactions: transactions.map(t => ({
-        ...t,
-        id: t._id,
-        // Only fallback to description/name/text, NOT category
-        title: t.title || t.description || t.name || t.text || t.label || "Untitled Transaction",
-      }))
+      transactions: transactions
     })
 
   } catch (err) {
