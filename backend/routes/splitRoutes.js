@@ -1,6 +1,4 @@
-import express from "express"
-import { protect } from "../middleware/authMiddleware.js"
-import Transaction from "../models/Transaction.js"
+import SplitRequest from "../models/SplitRequest.js"
 
 const router = express.Router()
 
@@ -13,7 +11,7 @@ router.get("/summary", protect, async (req, res) => {
     }).lean()
 
     const debts = [] // Who owes me
-    const ious = []  // Who I owe (for cases where we might support others paying later)
+    const ious = []  // Who I owe
 
     transactions.forEach(tx => {
       tx.splitDetails.forEach(split => {
@@ -29,13 +27,89 @@ router.get("/summary", protect, async (req, res) => {
       })
     })
 
+    // Fetch incoming social requests (Who I owe)
+    const socialRequests = await SplitRequest.find({
+      toEmail: req.user.email,
+      status: { $in: ["pending", "accepted"] }
+    }).populate("fromUser", "name email").lean()
+
+    socialRequests.forEach(req => {
+      ious.push({
+        _id: req._id,
+        title: req.transactionTitle,
+        person: req.fromUser?.name || req.fromUser?.email,
+        amount: req.amount,
+        status: req.status,
+        date: req.date
+      })
+    })
+
     res.json({ debts, ious })
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
 })
 
-// ➕ Add/Update Split for a Transaction
+// ➕ Send a Social Split Request
+router.post("/send-request", protect, async (req, res) => {
+  try {
+    const { toEmail, amount, transactionTitle } = req.body
+
+    const splitRequest = await SplitRequest.create({
+      fromUser: req.user.id,
+      toEmail,
+      amount,
+      transactionTitle,
+    })
+
+    res.status(201).json(splitRequest)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+// 🔄 Respond to Split Request (Accept/Reject)
+router.patch("/respond-request/:id", protect, async (req, res) => {
+  try {
+    const { status } = req.body // 'accepted' or 'rejected'
+    
+    // Check if request was sent to THIS user's email
+    const request = await SplitRequest.findOne({ 
+      _id: req.params.id, 
+      toEmail: req.user.email 
+    })
+
+    if (!request) return res.status(404).json({ message: "Request not found" })
+
+    request.status = status
+    await request.save()
+
+    res.json(request)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+// ✅ Settle a Social Split
+router.patch("/settle-social/:id", protect, async (req, res) => {
+  try {
+    const request = await SplitRequest.findOne({ 
+      _id: req.params.id,
+      $or: [{ fromUser: req.user.id }, { toEmail: req.user.email }]
+    })
+
+    if (!request) return res.status(404).json({ message: "Request not found" })
+
+    request.status = "settled"
+    await request.save()
+
+    res.json(request)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+// ➕ Add/Update Split for a Transaction (Local record)
 router.post("/split/:id", protect, async (req, res) => {
   try {
     const { splits } = req.body // Array of { name, amount }
