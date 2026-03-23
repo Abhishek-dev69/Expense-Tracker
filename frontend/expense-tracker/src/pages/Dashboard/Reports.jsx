@@ -28,11 +28,17 @@ const Reports = () => {
   const fetchReport = useCallback(async () => {
     setLoading(true)
     try {
-      const res = await axios.get(`${BASE_URL}/api/reports/monthly`, {
-        params: { month: selectedMonth, year: selectedYear },
-        headers: { Authorization: `Bearer ${authToken}` },
-      })
-      setReport(res.data)
+      const res = await fetch(
+        `${BASE_URL}/api/reports/monthly?month=${selectedMonth}&year=${selectedYear}&_=${Date.now()}`,
+        {
+          headers: { Authorization: `Bearer ${authToken}` },
+        }
+      )
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      setReport(data)
       setError(null)
     } catch (err) {
       console.error("Report fetch error:", err)
@@ -78,7 +84,7 @@ const Reports = () => {
     const headers = ["Date", "Title", "Category", "Type", "Amount", "Splits"]
     const rows = report.transactions.map(t => [
       new Date(t.date).toLocaleDateString(),
-      `"${t.title || t.description || t.name || t.text || t.label || "Untitled"}"`,
+      `"${t.title || t.description || t.notes || t.name || t.text || t.label || t.memo || t.remarks || t.reason || "Untitled"}"`,
       t.category || "General",
       (t.type || "expense").toUpperCase(),
       t.amount || 0,
@@ -426,7 +432,7 @@ const Reports = () => {
                         {new Date(t.date).toLocaleDateString(undefined, { day: '2-digit', month: 'short' })}
                       </td>
                       <td className="py-4 text-sm font-medium">
-                        <p className="text-white font-bold">{t.title || t.description || t.name || t.text || t.label || 'Untitled Transaction'}</p>
+                        <p className="text-white font-bold">{t.title || t.description || t.notes || t.name || t.text || t.label || t.memo || t.remarks || t.reason || 'Untitled Transaction'}</p>
                         {t.splitDetails?.length > 0 && (
                           <div className="mt-1 flex flex-wrap gap-1">
                             {t.splitDetails.map((split, sIdx) => (
