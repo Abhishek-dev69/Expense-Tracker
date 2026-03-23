@@ -1,3 +1,6 @@
+import express from "express"
+import { protect } from "../middleware/authMiddleware.js"
+import Transaction from "../models/Transaction.js"
 import SplitRequest from "../models/SplitRequest.js"
 
 const router = express.Router()
