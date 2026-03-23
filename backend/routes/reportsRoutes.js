@@ -68,7 +68,20 @@ router.get("/monthly", protect, async (req, res) => {
       ...currentMetrics,
       previousMonth: prevMetrics,
       breakdown: breakdownArray,
-      transactions: transactions
+      transactions: transactions.map(t => {
+        // Ultimate Heuristic: Scan for any string field that looks like a title
+        const likelyTitle = Object.keys(t).find(k => 
+          typeof t[k] === 'string' && 
+          !["_id", "__v", "user", "type", "category"].includes(k) &&
+          t[k].trim().length > 0
+        );
+
+        return {
+          ...t,
+          id: t._id,
+          title: t.title || t[likelyTitle] || t.description || "Untitled Transaction"
+        }
+      })
     })
 
   } catch (err) {
