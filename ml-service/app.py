@@ -4,9 +4,18 @@ import joblib
 import re
 import string
 
-# Load trained model
-model = joblib.load("model_artifacts/model.pkl")
-vectorizer = joblib.load("model_artifacts/vectorizer.pkl")
+print("--- Starting ML Service ---")
+print("Loading model artifacts...")
+
+try:
+    model = joblib.load("model_artifacts/model.pkl")
+    vectorizer = joblib.load("model_artifacts/vectorizer.pkl")
+    print("✅ Model artifacts loaded successfully.")
+except Exception as e:
+    print(f"❌ ERROR loading model artifacts: {str(e)}")
+    print(f"Current working directory: {os.getcwd()}")
+    import sys
+    sys.exit(1)
 
 # Create FastAPI instance
 app = FastAPI()
@@ -53,3 +62,9 @@ def predict(data: TransactionInput):
         "predicted_category": prediction,
         "confidence": float(probability)
     }
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
