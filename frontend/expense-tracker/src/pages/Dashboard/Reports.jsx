@@ -426,7 +426,7 @@ const Reports = () => {
                         {new Date(t.date).toLocaleDateString(undefined, { day: '2-digit', month: 'short' })}
                       </td>
                       <td className="py-4 text-sm font-medium">
-                        <p className="text-white font-bold">{t.title || t.description || 'Untitled Transaction'}</p>
+                        <p className="text-white font-bold">{t.title || t.description || t.name || t.text || t.label || 'Untitled Transaction'}</p>
                         {t.splitDetails?.length > 0 && (
                           <div className="mt-1 flex flex-wrap gap-1">
                             {t.splitDetails.map((split, sIdx) => (

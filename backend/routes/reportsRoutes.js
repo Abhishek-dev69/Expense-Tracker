@@ -69,13 +69,10 @@ router.get("/monthly", protect, async (req, res) => {
       previousMonth: prevMetrics,
       breakdown: breakdownArray,
       transactions: transactions.map(t => ({
+        ...t,
         id: t._id,
-        date: t.date,
-        title: t.title || t.description || "Untitled Transaction",
-        amount: t.amount,
-        type: t.type,
-        category: t.category,
-        splitDetails: t.splitDetails || []
+        // Only fallback to description/name/text, NOT category
+        title: t.title || t.description || t.name || t.text || t.label || "Untitled Transaction",
       }))
     })
 
