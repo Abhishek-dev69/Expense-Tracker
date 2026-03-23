@@ -24,17 +24,17 @@ router.get("/monthly", protect, async (req, res) => {
     const prevEnd = new Date(start)
     prevEnd.setSeconds(-1)
 
-    // Fetch current month transactions
+    // Fetch current month transactions with lean for efficiency
     const transactions = await Transaction.find({
       user: userId,
       date: { $gte: start, $lte: end },
-    })
+    }).lean()
 
     // Fetch previous month transactions for comparison
     const prevTransactions = await Transaction.find({
       user: userId,
       date: { $gte: prevStart, $lte: prevEnd },
-    })
+    }).lean()
 
     const calculateMetrics = (txs) => {
       const income = txs
@@ -71,10 +71,11 @@ router.get("/monthly", protect, async (req, res) => {
       transactions: transactions.map(t => ({
         id: t._id,
         date: t.date,
-        title: t.title,
+        title: t.title || t.description || "Untitled Transaction",
         amount: t.amount,
         type: t.type,
-        category: t.category
+        category: t.category,
+        splitDetails: t.splitDetails || []
       }))
     })
 

@@ -78,11 +78,11 @@ const Reports = () => {
     const headers = ["Date", "Title", "Category", "Type", "Amount", "Splits"]
     const rows = report.transactions.map(t => [
       new Date(t.date).toLocaleDateString(),
-      `"${(t.title || "").replace(/"/g, '""')}"`,
-      `"${t.category}"`,
+      `"${t.title}"`,
+      t.category,
       t.type.toUpperCase(),
       t.amount,
-      `"${(t.splitDetails || []).map(s => `${s.name}: ₹${s.amount}`).join(" | ")}"`
+      `"${(t.splitDetails || []).map(s => `${s.name}: ₹${s.amount} (${s.status})`).join(" | ")}"`
     ])
 
     // 3. Combine and Export
