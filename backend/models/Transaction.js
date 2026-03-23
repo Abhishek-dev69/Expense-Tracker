@@ -41,6 +41,7 @@ const transactionSchema = new mongoose.Schema(
     splitDetails: [
       {
         name: { type: String, required: true },
+        email: { type: String }, // Optional email for social splits
         amount: { type: Number, required: true },
         status: { 
           type: String, 
