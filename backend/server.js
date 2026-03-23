@@ -31,7 +31,9 @@ app.use(
         process.env.FRONTEND_URL,
       ].filter(Boolean)
       
-      if (!origin || allowedOrigins.some(o => origin.startsWith(o))) {
+      const isVercel = origin && origin.endsWith(".vercel.app")
+      
+      if (!origin || allowedOrigins.some(o => origin.startsWith(o)) || isVercel) {
         callback(null, true)
       } else {
         callback(new Error("Not allowed by CORS"))
