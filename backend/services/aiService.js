@@ -2,7 +2,8 @@ import axios from "axios"
 
 export const predictCategory = async (text) => {
   try {
-    const res = await axios.post("http://localhost:8000/predict", {
+    const mlUrl = process.env.ML_SERVICE_URL || "http://localhost:8000"
+    const res = await axios.post(`${mlUrl}/predict`, {
       text,
     })
 
