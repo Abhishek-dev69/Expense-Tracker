@@ -40,7 +40,7 @@ router.post("/split/:id", protect, async (req, res) => {
   try {
     const { splits } = req.body // Array of { name, amount }
     
-    const tx = await Transaction.findOne({ _id: req.id, user: req.user.id })
+    const tx = await Transaction.findOne({ _id: req.params.id, user: req.user.id })
     if (!tx) return res.status(404).json({ message: "Transaction not found" })
 
     tx.splitDetails = splits
