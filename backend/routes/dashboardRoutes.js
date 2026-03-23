@@ -18,6 +18,8 @@ router.get("/", protect, async (req, res) => {
     // 🗓️ Current Month Info
     const today = new Date()
     const currentMonthString = today.toISOString().slice(0, 7) // "YYYY-MM"
+    const daysPassed = today.getDate()
+    const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()
 
     // 💰 Fetch Budget for current month
     const budgetDoc = await Budget.findOne({ user: userId, month: currentMonthString })
