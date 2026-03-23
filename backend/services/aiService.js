@@ -14,7 +14,7 @@ export const predictCategory = async (text) => {
     const res = await axios.post(targetUrl, {
       text,
     }, {
-      timeout: 10000, // 10s timeout for cold starts
+      timeout: 60000, // 60s timeout for cold starts
       headers: { "Accept": "application/json" }
     })
 
