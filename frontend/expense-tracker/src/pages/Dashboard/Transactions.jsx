@@ -3,6 +3,7 @@ import axios from "axios"
 import { Search, Trash2, Download, Upload, Users } from "lucide-react"
 import ImportModal from "../../components/dashboard/ImportModal"
 import SplitModal from "../../components/dashboard/SplitModal"
+import { BASE_URL } from "../../utils/apiPaths"
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState([])
@@ -19,7 +20,7 @@ const Transactions = () => {
       const token = localStorage.getItem("token")
 
       const res = await axios.get(
-        `http://localhost:5001/api/transactions?page=${page}&search=${search}`,
+        `${BASE_URL}/api/transactions?page=${page}&search=${search}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -43,7 +44,7 @@ const Transactions = () => {
       const token = localStorage.getItem("token")
 
       await axios.delete(
-        `http://localhost:5001/api/transactions/${id}`,
+        `${BASE_URL}/api/transactions/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
