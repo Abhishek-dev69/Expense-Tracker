@@ -58,7 +58,7 @@ const Sidebar = () => {
             <LayoutDashboard size={18} /> Overview
           </NavLink>
           <NavLink to="/dashboard/transactions" className={linkClass}>
-            <List size={18} /> amogh
+            <List size={18} /> Transactions
           </NavLink>
 
           <NavLink to="/dashboard/analytics" className={linkClass}>
