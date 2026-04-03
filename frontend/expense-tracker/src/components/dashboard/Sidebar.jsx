@@ -74,8 +74,8 @@ const Sidebar = ({ mobile = false, onClose }) => {
 
       <div className="relative flex items-center justify-between px-5 pb-4 pt-5">
         <div className="flex items-center gap-3">
-          <div className="pulse-glow flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-cyan-400 text-slate-950 shadow-[0_18px_50px_rgba(16,185,129,0.35)]">
-            <Sparkles size={20} />
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_18px_50px_rgba(0,0,0,0.3)]">
+            <img src="/logo.png" alt="FinTrack AI Logo" className="h-10 w-10 object-contain" />
           </div>
           <div>
             <p className="text-[11px] font-black uppercase tracking-[0.34em] text-emerald-300/90">
