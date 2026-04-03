@@ -1,52 +1,43 @@
-const StatCard = ({ title, value, highlight = false, icon }) => {
+const StatCard = ({ title, value, subtitle, highlight = false, negative = false, icon }) => {
+  const amount = value || 0
+
   return (
     <div
-      className={`
-        relative p-6 rounded-3xl
-        bg-white/5 backdrop-blur-xl
-        border border-white/10
-        shadow-[0_8px_32px_rgba(0,0,0,0.45)]
-        transition-all duration-300
-        hover:-translate-y-1 hover:scale-[1.02]
-        ${
-          highlight
-            ? "ring-1 ring-emerald-400/40 shadow-emerald-500/10"
-            : ""
-        }
-      `}
+      className={`glass-panel surface-highlight relative overflow-hidden rounded-[1.9rem] p-5 transition-transform duration-300 hover:-translate-y-1 ${
+        highlight ? "border-emerald-400/18" : "border-white/10"
+      }`}
     >
-      {/* Inner Glow Layer */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+      <div
+        className={`absolute right-[-2rem] top-[-2rem] h-24 w-24 rounded-full blur-3xl ${
+          highlight ? "bg-emerald-400/12" : negative ? "bg-rose-400/12" : "bg-indigo-400/10"
+        }`}
+      />
 
-      <div className="relative flex items-center justify-between mb-4">
-        <p className="text-sm text-gray-400 tracking-wide">
-          {title}
-        </p>
+      <div className="relative flex items-start justify-between gap-4">
+        <div>
+          <p className="text-[11px] font-black uppercase tracking-[0.28em] text-slate-500">{title}</p>
+          <h3
+            className={`mt-3 font-['Outfit'] text-3xl font-semibold tracking-tight ${
+              highlight ? "text-emerald-100" : negative ? "text-rose-100" : "text-white"
+            }`}
+          >
+            ₹{amount.toLocaleString("en-IN")}
+          </h3>
+          <p className="mt-2 text-sm text-slate-400">{subtitle}</p>
+        </div>
 
         <div
-          className={`
-            text-xl p-3 rounded-2xl
-            bg-[#1f2937]/70 backdrop-blur-md
-            border border-white/5
-            shadow-[6px_6px_16px_rgba(0,0,0,0.6),-4px_-4px_12px_rgba(255,255,255,0.03)]
-          `}
+          className={`flex h-14 w-14 items-center justify-center rounded-[1.4rem] border ${
+            highlight
+              ? "border-emerald-400/20 bg-emerald-400/14"
+              : negative
+                ? "border-rose-400/16 bg-rose-400/12"
+                : "border-white/[0.08] bg-white/[0.05]"
+          }`}
         >
           {icon}
         </div>
       </div>
-
-      <h3
-        className={`
-          relative text-3xl font-bold tracking-wide
-          ${
-            highlight
-              ? "text-emerald-400"
-              : "text-white"
-          }
-        `}
-      >
-        ₹{value.toLocaleString()}
-      </h3>
     </div>
   )
 }
