@@ -33,4 +33,17 @@ router.get('/profile', protect, async (req, res) => {
   }
 })
 
+router.post('/complete-tutorial', protect, async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(
+      req.user.id,
+      { hasSeenTutorial: true },
+      { new: true }
+    ).select('-password')
+    res.json(user)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
 export default router
