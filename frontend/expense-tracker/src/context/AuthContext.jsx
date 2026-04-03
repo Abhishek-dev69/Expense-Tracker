@@ -43,7 +43,8 @@ export const AuthProvider = ({ children }) => {
   const completeTutorial = async () => {
     if (!token || !user) return
     
-    // Optimistic update
+    // Optimistic and Local Storage update
+    localStorage.setItem(`tutorial_seen_${user._id}`, "true")
     const prevUser = user
     setUser({ ...user, hasSeenTutorial: true })
 
@@ -54,7 +55,7 @@ export const AuthProvider = ({ children }) => {
       setUser(res.data)
     } catch (err) {
       console.error("Complete tutorial error:", err)
-      // Rollback if failed
+      // Rollback is safe because the localStorage will still be checked in components as a secondary filter
       setUser(prevUser)
     }
   }

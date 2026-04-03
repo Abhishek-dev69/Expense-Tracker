@@ -275,7 +275,7 @@ const DashboardLayout = () => {
         />
       )}
 
-      {user && !user.hasSeenTutorial && (
+      {user && !user.hasSeenTutorial && !localStorage.getItem(`tutorial_seen_${user._id}`) && (
         <TutorialOverlay onComplete={completeTutorial} />
       )}
     </div>
