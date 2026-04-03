@@ -22,7 +22,7 @@ const navSections = [
     title: "Overview",
     items: [
       { to: "/dashboard", label: "Overview", icon: LayoutDashboard, exact: true },
-      { to: "/dashboard/transactions", label: "Transactions", icon: List },
+      { to: "/dashboard/transactions", label: "rakshit", icon: List },
       { to: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
     ],
   },
