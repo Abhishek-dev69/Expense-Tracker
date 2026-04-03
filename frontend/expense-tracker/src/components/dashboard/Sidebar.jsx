@@ -74,8 +74,8 @@ const Sidebar = ({ mobile = false, onClose }) => {
 
       <div className="relative flex items-center justify-between px-5 pb-4 pt-5">
         <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_18px_50px_rgba(0,0,0,0.3)]">
-            <img src="/logo.png" alt="FinTrack AI Logo" className="h-10 w-10 object-contain" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 border border-white/10 shadow-2xl pulse-glow group transition-all duration-500 overflow-hidden">
+            <img src="/logo.png" alt="FinTrack AI" className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" />
           </div>
           <div>
             <p className="text-[11px] font-black uppercase tracking-[0.34em] text-emerald-300/90">

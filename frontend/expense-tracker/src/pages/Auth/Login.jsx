@@ -55,8 +55,8 @@ const Login = () => {
         
         {/* Logo/Brand Section */}
         <div className="flex flex-col items-center mb-10">
-          <div className="w-20 h-20 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2.5xl flex items-center justify-center mb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)] group transition-all duration-500 hover:border-emerald-500/30">
-            <img src="/logo.png" alt="FinTrack AI Logo" className="h-16 w-16 object-contain group-hover:scale-110 transition-transform duration-500" />
+          <div className="w-24 h-24 bg-white/5 border border-white/10 rounded-[2rem] flex items-center justify-center mb-8 shadow-2xl group transition-all duration-500 overflow-hidden">
+            <img src="/logo.png" alt="FinTrack AI" className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" />
           </div>
           <h1 className="text-4xl font-black tracking-tighter text-white mb-2">
             FinTrack <span className="text-emerald-400">AI</span>
