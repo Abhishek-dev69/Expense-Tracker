@@ -1,15 +1,266 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+  --bg: #08111f;
+  --bg-elevated: rgba(12, 21, 38, 0.82);
+  --panel: rgba(255, 255, 255, 0.08);
+  --panel-strong: rgba(8, 15, 30, 0.84);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(148, 163, 184, 0.18);
+  --text: #f8fafc;
+  --muted: #90a3bf;
+  --emerald-glow: rgba(16, 185, 129, 0.22);
+  --indigo-glow: rgba(99, 102, 241, 0.2);
+  --rose-glow: rgba(244, 63, 94, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
 
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  padding: 0;
-  background-color: #efeaef;
+  min-height: 100vh;
+  color: var(--text);
   overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(16, 185, 129, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.16), transparent 28%),
+    linear-gradient(145deg, #07111d 0%, #0b1628 48%, #101a2f 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 88%);
+  opacity: 0.22;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.35);
+  color: white;
+}
+
+.glass-panel {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--line);
+  box-shadow:
+    0 24px 80px rgba(2, 6, 23, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+}
+
+.glass-panel-strong {
+  background: linear-gradient(180deg, rgba(12, 21, 38, 0.92), rgba(8, 15, 28, 0.84));
+  border: 1px solid var(--line-strong);
+  box-shadow:
+    0 28px 90px rgba(2, 6, 23, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(28px);
+}
+
+.surface-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1), transparent 46%);
+  opacity: 0.7;
+}
+
+.premium-button {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.premium-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 18%, rgba(255, 255, 255, 0.18) 48%, transparent 76%);
+  transform: translateX(-120%);
+  transition: transform 600ms ease;
+}
+
+.premium-button:hover::after {
+  transform: translateX(120%);
+}
+
+.premium-button:hover {
+  transform: translateY(-1px);
+}
+
+.premium-button:active {
+  transform: scale(0.98);
+}
+
+.premium-chip {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+}
+
+.soft-ring {
+  box-shadow:
+    0 0 0 1px rgba(148, 163, 184, 0.12),
+    0 18px 50px rgba(2, 6, 23, 0.24);
+}
+
+.app-shell-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(16, 185, 129, 0.14), transparent 18%),
+    radial-gradient(circle at 78% 20%, rgba(99, 102, 241, 0.16), transparent 20%),
+    radial-gradient(circle at 82% 80%, rgba(244, 63, 94, 0.1), transparent 18%);
+}
+
+.page-enter {
+  animation: page-enter 540ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.float-orbit {
+  animation: float-orbit 12s ease-in-out infinite;
+}
+
+.float-orbit-delayed {
+  animation: float-orbit 16s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.pulse-glow {
+  animation: pulse-glow 3.2s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(120deg, #f8fafc 20%, #9ae6c8 45%, #93c5fd 55%, #f8fafc 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-text 5s linear infinite;
+}
+
+.dashboard-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.dashboard-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.dashboard-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dashboard-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  background-color: rgba(148, 163, 184, 0.32);
+}
+
+.dashboard-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.5);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float-orbit {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.04);
+  }
+}
+
+@keyframes shimmer-text {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.12);
+  }
+
+  50% {
+    box-shadow: 0 0 0 14px rgba(16, 185, 129, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
