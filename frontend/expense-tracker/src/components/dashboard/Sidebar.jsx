@@ -1,4 +1,3 @@
-// src/components/dashboard/Sidebar.jsx
 import { NavLink } from "react-router-dom"
 import { useAuth } from "../../context/AuthContext"
 import {
@@ -13,103 +12,161 @@ import {
   Medal,
   LogOut,
   User as UserIcon,
-  Users
+  Users,
+  Sparkles,
+  X,
 } from "lucide-react"
 
+const navSections = [
+  {
+    title: "Overview",
+    items: [
+      { to: "/dashboard", label: "Overview", icon: LayoutDashboard, exact: true },
+      { to: "/dashboard/transactions", label: "Transactions", icon: List },
+      { to: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
+    ],
+  },
+  {
+    title: "Planning",
+    items: [
+      { to: "/dashboard/budget", label: "Budgeting", icon: Target },
+      { to: "/dashboard/goals", label: "Savings Goals", icon: Flag },
+      { to: "/dashboard/recurring", label: "Subscriptions", icon: RotateCcw },
+      { to: "/dashboard/debts", label: "Friends & Debts", icon: Users },
+    ],
+  },
+  {
+    title: "Intelligence",
+    items: [
+      { to: "/dashboard/insights", label: "AI Insights", icon: Brain },
+      { to: "/dashboard/reports", label: "Reports", icon: FileText },
+      { to: "/dashboard/achievements", label: "Achievements", icon: Medal },
+    ],
+  },
+]
+
 const NavGroup = ({ title }) => (
-  <p className="px-5 text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-3 mt-6 first:mt-0">
+  <p className="mb-3 mt-7 px-1 text-[10px] font-black uppercase tracking-[0.34em] text-slate-500 first:mt-0">
     {title}
   </p>
 )
 
-const Sidebar = () => {
+const Sidebar = ({ mobile = false, onClose }) => {
   const { user, logout } = useAuth()
-  
+
   const linkClass = ({ isActive }) =>
-    `
-    relative flex items-center gap-3 px-5 py-3 rounded-2xl
-    transition-all duration-300 mb-1
-    ${
+    `group relative mb-1.5 flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition-all duration-200 ${
       isActive
-        ? "bg-white/10 text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)]"
-        : "text-gray-400 hover:bg-white/5 hover:text-white"
-    }
-    `
+        ? "bg-white/[0.11] text-white shadow-[0_16px_40px_rgba(15,23,42,0.28)]"
+        : "text-slate-400 hover:bg-white/[0.06] hover:text-white"
+    }`
 
   return (
     <aside
-      className="
-        relative w-64 h-screen p-6 flex flex-col justify-between
-        bg-white/5 backdrop-blur-xl
-        border-r border-white/10
-        shadow-[8px_0_32px_rgba(0,0,0,0.4)]
-        rounded-none
-      "
+      className={`glass-panel surface-highlight relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 ${
+        mobile ? "w-full" : "w-[18rem]"
+      }`}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute right-[-3rem] top-[-2rem] h-32 w-32 rounded-full bg-emerald-500/14 blur-3xl" />
+        <div className="absolute bottom-8 left-[-2rem] h-28 w-28 rounded-full bg-indigo-500/14 blur-3xl" />
+      </div>
 
-      <div className="relative overflow-y-auto pr-2 custom-scrollbar">
-        <h1 className="text-2xl font-black text-white mb-10 tracking-tighter flex items-center gap-2">
-          FinTrack <span className="text-emerald-400">AI</span>
-        </h1>
+      <div className="relative flex items-center justify-between px-5 pb-4 pt-5">
+        <div className="flex items-center gap-3">
+          <div className="pulse-glow flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-cyan-400 text-slate-950 shadow-[0_18px_50px_rgba(16,185,129,0.35)]">
+            <Sparkles size={20} />
+          </div>
+          <div>
+            <p className="text-[11px] font-black uppercase tracking-[0.34em] text-emerald-300/90">
+              FinTrack AI
+            </p>
+            <h1 className="mt-1 font-['Outfit'] text-2xl font-semibold tracking-tight text-white">
+              Wealth OS
+            </h1>
+          </div>
+        </div>
 
-        <nav className="text-sm">
-          <NavLink to="/dashboard" end className={linkClass}>
-            <LayoutDashboard size={18} /> Overview
-          </NavLink>
-          <NavLink to="/dashboard/transactions" className={linkClass}>
-            <List size={18} /> Transactions
-          </NavLink>
+        {mobile && (
+          <button
+            className="premium-chip flex h-10 w-10 items-center justify-center rounded-2xl text-slate-300 xl:hidden"
+            onClick={onClose}
+            aria-label="Close menu"
+          >
+            <X size={18} />
+          </button>
+        )}
+      </div>
 
-          <NavLink to="/dashboard/analytics" className={linkClass}>
-            <BarChart3 size={18} /> Analytics
-          </NavLink>
-          <NavLink to="/dashboard/insights" className={linkClass}>
-            <Brain size={18} /> AI Insights
-          </NavLink>
-          <NavLink to="/dashboard/reports" className={linkClass}>
-            <FileText size={18} /> Reports
-          </NavLink>
+      <div className="relative mx-5 rounded-[1.5rem] border border-white/[0.08] bg-white/[0.045] p-4">
+        <div className="mb-3 flex items-start gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.08] text-emerald-300">
+            <UserIcon size={19} />
+          </div>
+          <div className="min-w-0">
+            <p className="truncate font-semibold text-white">{user?.name || "Member"}</p>
+            <p className="truncate text-xs text-slate-400">{user?.email || "Secure workspace"}</p>
+          </div>
+        </div>
+        <div className="premium-chip flex items-center justify-between rounded-2xl px-3 py-2 text-xs text-slate-300">
+          <span>Workspace status</span>
+          <span className="rounded-full bg-emerald-400/14 px-2 py-1 font-bold uppercase tracking-[0.22em] text-emerald-300">
+            Live
+          </span>
+        </div>
+      </div>
 
-          <NavLink to="/dashboard/budget" className={linkClass}>
-            <Target size={18} /> Budgeting
-          </NavLink>
-          <NavLink to="/dashboard/goals" className={linkClass}>
-            <Flag size={18} /> Savings Goals
-          </NavLink>
-          <NavLink to="/dashboard/recurring" className={linkClass}>
-            <RotateCcw size={18} /> Subscriptions
-          </NavLink>
-          <NavLink to="/dashboard/debts" className={linkClass}>
-            <Users size={18} /> Friends & Debts
-          </NavLink>
-
-          <NavLink to="/dashboard/achievements" className={linkClass}>
-            <Medal size={18} /> Achievements
-          </NavLink>
+      <div className="dashboard-scroll relative flex-1 overflow-y-auto px-5 pb-5 pt-5">
+        <nav>
+          {navSections.map((section) => (
+            <div key={section.title}>
+              <NavGroup title={section.title} />
+              {section.items.map(({ to, label, icon: Icon, exact }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  end={exact}
+                  className={linkClass}
+                  onClick={mobile ? onClose : undefined}
+                >
+                  {({ isActive }) => (
+                    <>
+                      <span
+                        className={`flex h-10 w-10 items-center justify-center rounded-2xl border transition-all ${
+                          isActive
+                            ? "border-emerald-400/30 bg-emerald-400/14 text-emerald-300 shadow-[0_12px_32px_rgba(16,185,129,0.18)]"
+                            : "border-white/[0.06] bg-white/[0.045] text-slate-400 group-hover:border-white/[0.12] group-hover:text-white"
+                        }`}
+                      >
+                        <Icon size={17} />
+                      </span>
+                      <span className="flex-1">{label}</span>
+                      {isActive && (
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-300 shadow-[0_0_18px_rgba(110,231,183,0.7)]" />
+                      )}
+                    </>
+                  )}
+                </NavLink>
+              ))}
+            </div>
+          ))}
         </nav>
       </div>
 
-      <div className="relative mt-auto pt-6 border-t border-white/5">
-        <div className="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
-              <UserIcon size={20} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-bold text-white truncate">{user?.name || "Member"}</p>
-              <p className="text-[10px] text-gray-500 truncate">{user?.email}</p>
-            </div>
-          </div>
-          
-          <button 
-            onClick={logout}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 transition-all text-xs font-bold uppercase tracking-wider shadow-lg active:scale-95"
-          >
-            <LogOut size={14} />
-            Sign Out
-          </button>
-        </div>
+      <div className="relative m-5 mt-0 rounded-[1.7rem] border border-white/[0.08] bg-gradient-to-br from-rose-500/10 to-transparent p-4">
+        <p className="text-[11px] font-black uppercase tracking-[0.28em] text-slate-400">
+          Session
+        </p>
+        <p className="mt-2 text-sm leading-6 text-slate-300">
+          Your financial data is ready. Review the latest activity, then keep your budget streak moving.
+        </p>
+        <button
+          onClick={logout}
+          className="premium-button mt-4 flex w-full items-center justify-center gap-2 rounded-2xl border border-rose-400/18 bg-rose-500/12 px-4 py-3 text-sm font-semibold text-rose-200 hover:border-rose-300/35 hover:bg-rose-500/18"
+        >
+          <LogOut size={16} />
+          Sign Out
+        </button>
       </div>
     </aside>
   )
