@@ -4,6 +4,7 @@ import Sidebar from "../../components/dashboard/Sidebar"
 import Topbar from "../../components/dashboard/Topbar"
 import AddIncomeModal from "../../components/dashboard/AddIncomeModal"
 import AddExpenseModal from "../../components/dashboard/AddExpenseModal"
+import TutorialOverlay from "../../components/dashboard/TutorialOverlay"
 import { BASE_URL } from "../../utils/apiPaths"
 import { useAuth } from "../../context/AuthContext"
 import axios from "axios"
@@ -63,7 +64,7 @@ const DashboardLayout = () => {
   const [showIncome, setShowIncome] = useState(false)
   const [showExpense, setShowExpense] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const { token } = useAuth()
+  const { token, user, completeTutorial } = useAuth()
   const location = useLocation()
 
   const authToken = token || localStorage.getItem("token")
@@ -272,6 +273,10 @@ const DashboardLayout = () => {
           onClose={() => setShowExpense(false)}
           onSubmit={handleAddExpense}
         />
+      )}
+
+      {user && !user.hasSeenTutorial && (
+        <TutorialOverlay onComplete={completeTutorial} />
       )}
     </div>
   )

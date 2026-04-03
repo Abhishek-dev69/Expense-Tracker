@@ -40,8 +40,20 @@ export const AuthProvider = ({ children }) => {
     setUser(null)
   }
 
+  const completeTutorial = async () => {
+    if (!token) return
+    try {
+      const res = await axios.post(`${BASE_URL}/api/auth/complete-tutorial`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      setUser(res.data)
+    } catch (err) {
+      console.error("Complete tutorial error:", err)
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ token, user, login, logout }}>
+    <AuthContext.Provider value={{ token, user, login, logout, completeTutorial, setUser }}>
       {children}
     </AuthContext.Provider>
   )
