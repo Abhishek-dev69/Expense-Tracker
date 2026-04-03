@@ -41,7 +41,12 @@ export const AuthProvider = ({ children }) => {
   }
 
   const completeTutorial = async () => {
-    if (!token) return
+    if (!token || !user) return
+    
+    // Optimistic update
+    const prevUser = user
+    setUser({ ...user, hasSeenTutorial: true })
+
     try {
       const res = await axios.post(`${BASE_URL}/api/auth/complete-tutorial`, {}, {
         headers: { Authorization: `Bearer ${token}` }
@@ -49,6 +54,8 @@ export const AuthProvider = ({ children }) => {
       setUser(res.data)
     } catch (err) {
       console.error("Complete tutorial error:", err)
+      // Rollback if failed
+      setUser(prevUser)
     }
   }
 
