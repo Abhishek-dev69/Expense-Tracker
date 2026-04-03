@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   streakCount: { type: Number, default: 0 },
   lastLoginDate: { type: Date },
+  hasSeenTutorial: { type: Boolean, default: false },
   badges: [{ type: String }], // e.g. ["First Saver", "Budget Master"]
 })
 
