@@ -1,79 +1,84 @@
-// src/components/dashboard/BudgetHealthCard.jsx
 import { AlertTriangle, Zap, TrendingUp } from "lucide-react"
 
-const BudgetHealthCard = ({ totalExpense, budgetLimit, avgDailyExpense }) => {
-  if (!budgetLimit || budgetLimit === 0) return null
+const BudgetHealthCard = ({ totalExpense = 0, budgetLimit = 0, avgDailyExpense = 0 }) => {
+  if (!budgetLimit) return null
 
   const today = new Date()
-  const daysPassed = today.getDate()
   const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()
-  
+
   const projectedExpense = avgDailyExpense * daysInMonth
   const percentOfBudget = (totalExpense / budgetLimit) * 100
-  const projectedPercent = (projectedExpense / budgetLimit) * 100
-  
   const isHealthy = projectedExpense <= budgetLimit
-  const isDanger = percentOfBudget > 90 || !isHealthy
 
   return (
-    <div className={`relative p-8 rounded-[2.5rem] overflow-hidden transition-all duration-500 border ${
-      isHealthy 
-        ? "bg-emerald-500/5 border-emerald-500/10" 
-        : "bg-rose-500/5 border-rose-500/10"
-    }`}>
-      {/* Background Pulse for Danger */}
-      {!isHealthy && (
-        <div className="absolute inset-0 bg-rose-500/5 animate-pulse pointer-events-none" />
-      )}
+    <section
+      className={`glass-panel surface-highlight relative overflow-hidden rounded-[2rem] p-6 sm:p-8 ${
+        isHealthy ? "border-emerald-400/16" : "border-rose-400/14"
+      }`}
+    >
+      <div
+        className={`absolute right-[-3rem] top-[-2rem] h-40 w-40 rounded-full blur-[90px] ${
+          isHealthy ? "bg-emerald-400/12" : "bg-rose-400/12"
+        }`}
+      />
 
-      <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex items-center gap-6">
-          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-500 ${
-            isHealthy 
-              ? "bg-emerald-500 text-white shadow-emerald-500/20" 
-              : "bg-rose-500 text-white shadow-rose-500/20 scale-110"
-          }`}>
-            {isHealthy ? <Zap size={32} /> : <AlertTriangle size={32} className="animate-bounce" />}
+      <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex items-start gap-4 sm:gap-5">
+          <div
+            className={`flex h-16 w-16 items-center justify-center rounded-[1.5rem] ${
+              isHealthy ? "bg-emerald-400/14 text-emerald-200" : "bg-rose-400/14 text-rose-200"
+            }`}
+          >
+            {isHealthy ? <Zap size={28} /> : <AlertTriangle size={28} />}
           </div>
-          
+
           <div>
-            <h3 className="text-2xl font-black text-white tracking-tight">
-              Budget Health: <span className={isHealthy ? "text-emerald-400" : "text-rose-400"}>
-                {isHealthy ? "Stable" : "At Risk"}
-              </span>
+            <p className="text-[11px] font-black uppercase tracking-[0.28em] text-slate-500">
+              Budget Health
+            </p>
+            <h3 className="mt-2 font-['Outfit'] text-2xl font-semibold text-white">
+              {isHealthy ? "Stable spending pace" : "Budget pressure detected"}
             </h3>
-            <p className="text-gray-400 font-medium">
-              {isHealthy 
-                ? "You're spending within your daily velocity limits. Keep it up!" 
-                : "Your daily velocity suggests you'll exceed your budget by the end of the month."}
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">
+              {isHealthy
+                ? "Your projected monthly spend is landing within budget based on current daily behavior."
+                : "Current daily behavior suggests you may cross the monthly budget limit unless spending slows down."}
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col items-end gap-2 w-full md:w-auto">
-          <div className="flex items-center gap-3 mb-2">
-             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">Current Progress</span>
-             <span className="text-white font-bold text-lg">{Math.min(100, percentOfBudget).toFixed(1)}%</span>
+        <div className="w-full max-w-md rounded-[1.7rem] border border-white/[0.08] bg-slate-950/30 p-5">
+          <div className="mb-3 flex items-center justify-between text-sm">
+            <span className="text-slate-400">Budget used</span>
+            <span className="font-semibold text-white">{Math.min(100, percentOfBudget).toFixed(1)}%</span>
           </div>
-          
-          <div className="w-full md:w-64 h-3 bg-white/5 rounded-full overflow-hidden border border-white/5">
-            <div 
-              className={`h-full transition-all duration-1000 ease-out rounded-full ${isHealthy ? 'bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.5)]'}`}
-              style={{ width: `${Math.min(100, percentOfBudget)}%` }}
+          <div className="h-3 overflow-hidden rounded-full bg-white/[0.06]">
+            <div
+              className={`h-full rounded-full transition-all duration-1000 ${
+                isHealthy
+                  ? "bg-gradient-to-r from-emerald-400 to-cyan-400"
+                  : "bg-gradient-to-r from-rose-400 to-amber-300"
+              }`}
+              style={{ width: `${Math.min(100, Math.max(percentOfBudget, 4))}%` }}
             />
           </div>
 
-          {!isHealthy && (
-            <div className="flex items-center gap-2 mt-2 text-rose-400 text-xs font-black uppercase tracking-widest animate-pulse">
-              <TrendingUp size={14} /> Projected: ₹{projectedExpense.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.045] p-4">
+              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Spent so far</p>
+              <p className="mt-2 font-semibold text-white">₹{totalExpense.toLocaleString("en-IN")}</p>
             </div>
-          )}
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.045] p-4">
+              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Projected</p>
+              <p className={`mt-2 flex items-center gap-2 font-semibold ${isHealthy ? "text-emerald-200" : "text-rose-200"}`}>
+                {!isHealthy && <TrendingUp size={15} />}
+                ₹{projectedExpense.toLocaleString("en-IN", { maximumFractionDigits: 0 })}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Decorative Orbs */}
-      <div className={`absolute -right-20 -top-20 w-48 h-48 rounded-full blur-[80px] opacity-20 ${isHealthy ? 'bg-emerald-500' : 'bg-rose-500'}`} />
-    </div>
+    </section>
   )
 }
 
